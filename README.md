@@ -1,6 +1,6 @@
 # Travelling-Platform
 
-# Platforma de vacante - 4RA
+## Platforma de vacante - 4RA
 
 This platform offers you a wide array of communication means with fellow tourists from the travelling community, offering you 
 a unique enviroment well suited for discovering the best travel destination for your next trip.
@@ -12,15 +12,15 @@ Join us and let your once in a lifetime adventure start NOW!
 
 
 Lista feature-uri:
-	-- grupuri pentru fiecare destinatie, tara
-	-- sectiune de review-uri
-	--sistem de autentificare 
-	-- sistem de gestiune a rolurilor
-	-- design modern
-	-- sectiune de descriere pentru fiecare locatie
-	-- meniu de navigare
-	-- calendar date disponibile
-	-- search bar
-	-- servicii de booking
-	-- noutati/reduceri
+	- grupuri pentru fiecare destinatie, tara
+	- sectiune de review-uri
+	- sistem de autentificare 
+	- sistem de gestiune a rolurilor
+	- design modern
+	- sectiune de descriere pentru fiecare locatie
+	- meniu de navigare
+	- calendar date disponibile
+	- search bar
+	- servicii de booking
+	- noutati/reduceri
 
