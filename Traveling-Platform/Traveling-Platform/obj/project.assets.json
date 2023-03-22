@@ -2454,24 +2454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Radu\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Radu\\Desktop\\Travelling-Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
       "projectName": "Traveling-Platform",
-      "projectPath": "C:\\Users\\Radu\\Desktop\\Travelling-Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
-      "packagesPath": "C:\\Users\\Radu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Radu\\Desktop\\Travelling-Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\obj\\",
+      "projectPath": "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Radu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2537,7 +2532,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
