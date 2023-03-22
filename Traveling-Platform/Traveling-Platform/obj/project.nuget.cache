@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+mveekaW1wPb3eyZq+IMW7+UfIsVBIJjLvE7T1hZdxyGUwyA2wwaJ6Po79es/hYgpVTwO528jdYCRXKUeFd0aw==",
+  "dgSpecHash": "qILuzeRvwu5I/CLq8QvUA0iNn4R+1VU6j0CLMp64loeTcHx73llq0LdAYdejDLd7WlTj0BPBtjjM8xWs6+oYtw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+  "projectFilePath": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barbu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\barbu\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.11\\microsoft.aspnetcore.cryptography.internal.6.0.11.nupkg.sha512",

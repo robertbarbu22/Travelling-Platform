@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {}
+    "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {
+    "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+        "projectUniqueName": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
         "projectName": "Traveling-Platform",
-        "projectPath": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+        "projectPath": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
         "packagesPath": "C:\\Users\\barbu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\obj\\",
+        "outputPath": "C:\\Users\\barbu\\OneDrive\\Desktop\\Travelling Platform\\Traveling-Platform\\Traveling-Platform\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\barbu\\AppData\\Roaming\\NuGet\\NuGet.Config",
