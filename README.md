@@ -12,15 +12,15 @@ Join us and let your once in a lifetime adventure start NOW!
 
 
 Lista feature-uri:
-	- grupuri pentru fiecare destinatie, tara
-	- sectiune de review-uri
-	- sistem de autentificare 
-	- sistem de gestiune a rolurilor
-	- design modern
-	- sectiune de descriere pentru fiecare locatie
-	- meniu de navigare
-	- calendar date disponibile
-	- search bar
-	- servicii de booking
-	- noutati/reduceri
+- grupuri pentru fiecare destinatie, tara
+- sectiune de review-uri
+- sistem de autentificare 
+- sistem de gestiune a rolurilor
+- design modern
+- sectiune de descriere pentru fiecare locatie
+- meniu de navigare
+- calendar date disponibile
+- search bar
+- servicii de booking
+- noutati/reduceri
 
