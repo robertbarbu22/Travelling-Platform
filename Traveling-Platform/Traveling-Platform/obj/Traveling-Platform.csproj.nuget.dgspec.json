@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {}
+    "D:\\Users\\ruxiii\\OneDrive\\Desktop\\MDS\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {
+    "D:\\Users\\ruxiii\\OneDrive\\Desktop\\MDS\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+        "projectUniqueName": "D:\\Users\\ruxiii\\OneDrive\\Desktop\\MDS\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
         "projectName": "Traveling-Platform",
-        "projectPath": "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\OneDrive\\Desktop\\Travelling Platform\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\obj\\",
+        "projectPath": "D:\\Users\\ruxiii\\OneDrive\\Desktop\\MDS\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+        "packagesPath": "C:\\Users\\ruxiii\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\ruxiii\\OneDrive\\Desktop\\MDS\\Travelling-Platform\\Traveling-Platform\\Traveling-Platform\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ruxiii\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
