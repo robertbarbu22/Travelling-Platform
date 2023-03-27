@@ -11,5 +11,6 @@ namespace Traveling_Platform.Models
         [Required]
         public string name { get; set; }
 
+
     }
 }
