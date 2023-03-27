@@ -18,7 +18,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-// da
+// dar
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
