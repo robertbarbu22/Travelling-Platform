@@ -3,6 +3,24 @@
     "mssql1": {
       "type": "mssql.local",
       "connectionId": "ConnectionStrings:DefaultConnection"
+    },
+    "mssql2": {
+      "secretStore": null,
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:TravellingDB",
+      "dynamicId": null
+    },
+    "mssql3": {
+      "secretStore": null,
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:ProjectDB",
+      "dynamicId": null
+    },
+    "mssql4": {
+      "secretStore": null,
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:TravelDB",
+      "dynamicId": null
     }
   }
 }
