@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traveling-Platform", "Traveling-Platform\Traveling-Platform.csproj", "{8EA9E96F-20D7-4DA2-8AB9-0ECF39B68AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traveling-Platform", "Traveling-Platform\Traveling-Platform.csproj", "{8EA9E96F-20D7-4DA2-8AB9-0ECF39B68AB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3937FAD7-0A12-47F1-80B7-DFEDF8B87E57}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
