@@ -8,85 +8,149 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Traveling_Platform
 build_property.RootNamespace = Traveling_Platform
-build_property.ProjectDir = C:\Users\rares\Desktop\MDS\Travelling-Platform\Traveling-Platform\Traveling-Platform\
+build_property.ProjectDir = D:\Users\ruxiii\OneDrive\Desktop\MDS\Travelling-Platform\Traveling-Platform\Traveling-Platform\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\rares\Desktop\MDS\Travelling-Platform\Traveling-Platform\Traveling-Platform
+build_property.MSBuildProjectDirectory = D:\Users\ruxiii\OneDrive\Desktop\MDS\Travelling-Platform\Traveling-Platform\Traveling-Platform
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Cities/Index.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/ApplicationUsers/Done.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Vc2Vyc1xEb25lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/ApplicationUsers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Vc2Vyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/ApplicationUsers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Vc2Vyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/ApplicationUsers/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25Vc2Vyc1xTaG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Cities/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Cities/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Cities/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Cities/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Cities/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Index.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Countries/Show.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXFNob3cuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Home/Index.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Home/Privacy.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/Error.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Rooms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Rooms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Rooms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Rooms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Rooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/_LoginPartial.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/_ViewImports.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/_ViewStart.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rares/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/_Layout.cshtml]
+[D:/Users/ruxiii/OneDrive/Desktop/MDS/Travelling-Platform/Traveling-Platform/Traveling-Platform/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-gpemnc2xm5

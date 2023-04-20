@@ -22,6 +22,15 @@ namespace Traveling_Platform.Models
 
         public bool HasCookingEquipment { get; set; }
 
-        public virtual ICollection<HotelRoom>? HotelRooms { get; set; }
+        public int PricePerNight { get; set; }
+
+        //NU UITA DE ASTA!!!!!!!!!!
+        public bool IsBooked { get; set; }
+
+        public int IdHotel { get; set; }
+
+        public virtual Hotel? Hotel { get; set; }
+
+        //public virtual ICollection<HotelRoom>? HotelRooms { get; set; }
     }
 }

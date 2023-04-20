@@ -1,0 +1,45 @@
+﻿@model Traveling_Platform.Models.ApplicationUser
+
+<p> Details about @Model.UserName :</p>
+<p>Email: @Model.Email</p>
+<p>Role: @ViewBag.Role</p>
+<p>Phone Number: @Model.PhoneNumber</p>
+@*<p>Phone number: @Model.PhoneNumber</p>
+<p>First name: @Model.FirstName</p>
+<p>Last name: @Model.LastName</p>*@
+<div id="ceva1">
+    <a href="/ApplicationUsers/Edit/@Model.Id">Edit user</a>
+</div>
+<br />
+<div id="ceva2">
+    <a href="/ApplicationUsers/Delete/@Model.Id">Delete user</a>
+</div>
+<br />
+@if (ViewBag.Role == "User")
+{
+    <div id="ceva3">
+        <a href="/ApplicationUsers/MakeManager/@Model.Id">Make Manager</a> 
+    </div>
+    <div id="ceva4">
+        <a href="/ApplicationUsers/MakeReceptionist/@Model.Id">Make Receptionist</a>
+    </div>
+}
+else if (ViewBag.Role == "HotelReceptionist")
+{
+    <div id="ceva5">
+        <a href="/ApplicationUsers/MakeManager/@Model.Id">Make Manager</a>
+    </div>
+    <div id="ceva6">
+        <a href="/ApplicationUsers/MakeUser/@Model.Id">Make User</a>
+    </div>
+}
+else if (ViewBag.Role == "HotelManager")
+{
+    <div id="ceva7">
+        <a href="/ApplicationUsers/MakeReceptionist/@Model.Id">Make Receptionistr</a>
+    </div>
+    <div id="ceva8">
+        <a href="/ApplicationUsers/MakeUser/@Model.Id">Make User</a>
+    </div>
+}
+<br />

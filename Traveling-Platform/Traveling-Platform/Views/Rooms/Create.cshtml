@@ -1,0 +1,73 @@
+﻿@model Traveling_Platform.Models.Room
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Room</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoubleBedsNumber" class="control-label"></label>
+                <input asp-for="DoubleBedsNumber" class="form-control" />
+                <span asp-validation-for="DoubleBedsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SingleBedsNumber" class="control-label"></label>
+                <input asp-for="SingleBedsNumber" class="form-control" />
+                <span asp-validation-for="SingleBedsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BunkBedsNumber" class="control-label"></label>
+                <input asp-for="BunkBedsNumber" class="form-control" />
+                <span asp-validation-for="BunkBedsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasBalcony" /> @Html.DisplayNameFor(model => model.HasBalcony)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasBathroom" /> @Html.DisplayNameFor(model => model.HasBathroom)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasCookingEquipment" /> @Html.DisplayNameFor(model => model.HasCookingEquipment)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerNight" class="control-label"></label>
+                <input asp-for="PricePerNight" class="form-control" />
+                <span asp-validation-for="PricePerNight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdHotel" class="control-label"></label>
+                <input asp-for="IdHotel" class="form-control" />
+                <span asp-validation-for="IdHotel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

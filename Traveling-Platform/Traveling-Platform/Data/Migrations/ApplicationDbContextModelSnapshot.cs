@@ -293,7 +293,7 @@ namespace Traveling_Platform.Data.Migrations
 
                     b.HasIndex("Hotelid_hotel");
 
-                    b.ToTable("Booking");
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("Traveling_Platform.Models.City", b =>
@@ -380,7 +380,7 @@ namespace Traveling_Platform.Data.Migrations
                     b.ToTable("Hotels");
                 });
 
-            modelBuilder.Entity("Traveling_Platform.Models.HotelRoom", b =>
+            modelBuilder.Entity("Traveling_Platform.Models.Image", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -388,25 +388,21 @@ namespace Traveling_Platform.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("IdRoom")
+                    b.Property<int?>("Hotelid_hotel")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdHotel")
+                    b.Property<int>("IdHotel")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumberOfRooms")
-                        .HasColumnType("int");
+                    b.Property<string>("Picture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PricePerNight")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("Id", "IdRoom", "IdHotel");
+                    b.HasIndex("Hotelid_hotel");
 
-                    b.HasIndex("IdHotel");
-
-                    b.HasIndex("IdRoom");
-
-                    b.ToTable("HotelRooms");
+                    b.ToTable("Image");
                 });
 
             modelBuilder.Entity("Traveling_Platform.Models.Message", b =>
@@ -512,14 +508,28 @@ namespace Traveling_Platform.Data.Migrations
                     b.Property<bool>("HasCookingEquipment")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("Hotelid_hotel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdHotel")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsBooked")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PricePerNight")
+                        .HasColumnType("int");
 
                     b.Property<int>("SingleBedsNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Hotelid_hotel");
 
                     b.ToTable("Rooms");
                 });
@@ -615,23 +625,13 @@ namespace Traveling_Platform.Data.Migrations
                         .HasForeignKey("CityId");
                 });
 
-            modelBuilder.Entity("Traveling_Platform.Models.HotelRoom", b =>
+            modelBuilder.Entity("Traveling_Platform.Models.Image", b =>
                 {
                     b.HasOne("Traveling_Platform.Models.Hotel", "Hotel")
-                        .WithMany("HotelRooms")
-                        .HasForeignKey("IdHotel")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Traveling_Platform.Models.Room", "Room")
-                        .WithMany("HotelRooms")
-                        .HasForeignKey("IdRoom")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Images")
+                        .HasForeignKey("Hotelid_hotel");
 
                     b.Navigation("Hotel");
-
-                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("Traveling_Platform.Models.Message", b =>
@@ -654,6 +654,15 @@ namespace Traveling_Platform.Data.Migrations
                     b.HasOne("Traveling_Platform.Models.Hotel", null)
                         .WithMany("Reviews")
                         .HasForeignKey("Hotelid_hotel");
+                });
+
+            modelBuilder.Entity("Traveling_Platform.Models.Room", b =>
+                {
+                    b.HasOne("Traveling_Platform.Models.Hotel", "Hotel")
+                        .WithMany("Rooms")
+                        .HasForeignKey("Hotelid_hotel");
+
+                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("Traveling_Platform.Models.ApplicationUser", b =>
@@ -679,16 +688,13 @@ namespace Traveling_Platform.Data.Migrations
                 {
                     b.Navigation("Bookings");
 
-                    b.Navigation("HotelRooms");
+                    b.Navigation("Images");
 
                     b.Navigation("Messages");
 
                     b.Navigation("Reviews");
-                });
 
-            modelBuilder.Entity("Traveling_Platform.Models.Room", b =>
-                {
-                    b.Navigation("HotelRooms");
+                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }

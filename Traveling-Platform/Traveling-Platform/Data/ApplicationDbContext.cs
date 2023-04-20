@@ -19,7 +19,7 @@ namespace Traveling_Platform.Data
 
         public DbSet<Hotel> Hotels { get; set; }
 
-        public DbSet<HotelRoom> HotelRooms { get; set;}
+        public DbSet<Booking> Bookings { get; set;}
 
         public DbSet<Message> Messages { get; set; }
 
@@ -27,7 +27,7 @@ namespace Traveling_Platform.Data
 
         public DbSet<Room> Rooms { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
@@ -43,6 +43,6 @@ namespace Traveling_Platform.Data
                 .WithMany(hr => hr.HotelRooms)
                 .HasForeignKey(hr => hr.IdRoom);
             
-        }
+        }*/
     }
 }

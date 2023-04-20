@@ -28,12 +28,14 @@ namespace Traveling_Platform.Models
 
         public virtual ICollection<ApplicationUser>? Receptionists { get; set;}
 
-        public virtual ICollection<HotelRoom>? HotelRooms { get; set;}
+        public virtual ICollection<Room>? Rooms { get; set;}
 
         public virtual ICollection<Booking>? Bookings { get; set;}
 
         public virtual ICollection<Review>? Reviews { get; set;}
         
         public virtual ICollection<Message>? Messages { get; set;}
+
+        public virtual ICollection<Image>? Images { get; set; }
     }
 }
