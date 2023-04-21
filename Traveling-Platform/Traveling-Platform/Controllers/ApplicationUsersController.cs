@@ -203,6 +203,7 @@ namespace SchoolChatOriginal.Controllers
             //user.LastName = newData.LastName;
             user.PhoneNumber = newData.PhoneNumber;
 
+            ///chestii
 
             // Cautam toate rolurile din baza de date
             var roles = db.Roles.ToList();
