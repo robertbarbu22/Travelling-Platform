@@ -4,16 +4,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@ViewBag.Hotel.Name</h1>
 
 <div>
-    <h4>Hotel</h4>
-    <p>Name: @ViewBag.Hotel.Name</p>
     <p>Description: @ViewBag.Hotel.Description</p>
     <p>Contact: @ViewBag.Hotel.PhoneNumber</p>
-    <p>Manager's' Email: @ViewBag.Hotel.ManagerEmail</p>
     <p>City: @ViewBag.Hotel.CityName</p>
-    @*<p>Country: @ViewBag.Hotel.Country</p>*@
+    <br/>
     <img src="@("data:image/png;base64," + ViewBag.PictureBase64)" alt="Hotel Picture" />
 
 </div>

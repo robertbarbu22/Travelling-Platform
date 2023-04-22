@@ -36,22 +36,29 @@ namespace Traveling_Platform.Controllers
         // GET: Bookings
         public IActionResult Index()
         {
-            //dynamic model = new ExpandoObject();
+            if (User.IsInRole("Admin"))
+            {
+                var adminbookings = from book in db.Bookings
+                               select new
+                               {
+                                   bookdate = book.BookingDate,
+                                   checkin = book.Checkin,
+                                   checkout = book.Checkout,
+                                   email = db.Users.Find(book.IdUser).Email,
+                                   hotel = db.Hotels.Find(book.IdHotel).name,
+                                   room = db.Rooms.Find(book.IdRoom).Name
+                               };
+            }
 
-            var bookings = from book in db.Bookings
-                             select new
-                             {
-                                 bookdate = book.BookingDate,
-                                 checkin = book.Checkin,
-                                 checkout = book.Checkout,
-                                 email = db.Users.Find(book.IdUser).Email,
-                                 hotel = db.Hotels.Find(book.IdHotel).name,
-                                 room = db.Rooms.Find(book.IdRoom).Name
-                             };
+            //ViewBag.Utilizator = db.Users.Find()
+            var bookings = db.Bookings.ToList();
+            //ViewBag.bookings = bookings;
+            foreach(var book in bookings)
+            {
+                //ViewData[(string)book.Id]= db.Users.Find(book.IdUser);
+            }
 
-            ViewBag.bookings = bookings;
-
-            return View();
+            return View(bookings);
         }
 
         // GET: Bookings/Details/5

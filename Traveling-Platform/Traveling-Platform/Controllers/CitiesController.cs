@@ -66,6 +66,10 @@ namespace Traveling_Platform.Controllers
                 return NotFound();
             }
 
+            var hot = db.Hotels.Where(c => c.id_city == id).ToList();
+
+            ViewBag.Hotels = hot;
+
             return View(city);
         }
 
