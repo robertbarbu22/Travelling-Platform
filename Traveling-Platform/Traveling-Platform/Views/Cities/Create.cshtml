@@ -1,38 +1,34 @@
 ﻿@model Traveling_Platform.Models.City
 
-@{
-    ViewData["Title"] = "Create";
-}
+<h2 class="text-center mt-5">Add a city</h2>
+<br />
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-3">
+            @using (Html.BeginForm(actionName: "Create", controllerName: "Cities", method: FormMethod.Post))
+            {
+                @Html.Label("Name", "City Name")
+                <br />
+                @Html.TextBox("Name", null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Name, "", new {@class = "text-danger"})
+                <br />
 
-<h1>Create</h1>
+                <br />
 
-<h4>City</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="stateTag" class="control-label"></label>
-                <input asp-for="stateTag" class="form-control" />
-                <span asp-validation-for="stateTag" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+                <label>Select Country</label>
+                @Html.DropDownListFor(m => m.stateTag, new SelectList(Model.State, "Value", "Text"),
+            "Select Country", new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.stateTag, null, new {@class = "text-danger"})
+                <br />
+
+                <br />
+
+
+                <button id="add" class="btn btn-success" type="submit">Add City</button>
+            }
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

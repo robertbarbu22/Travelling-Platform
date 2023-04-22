@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,30 +13,53 @@ namespace Traveling_Platform.Controllers
 {
     public class CitiesController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public CitiesController(ApplicationDbContext context)
+        private readonly ApplicationDbContext db;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public CitiesController(
+        ApplicationDbContext context,
+        UserManager<ApplicationUser> userManager,
+        RoleManager<IdentityRole> roleManager
+        )
         {
-            _context = context;
+            db = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+
+        public IEnumerable<SelectListItem> GetAllCountries()
+        {
+            var selectList = new List<SelectListItem>();
+            var countries = from cat in db.Countries
+                             select cat;
+            foreach (var country in countries)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = country.tag.ToString(),
+                    Text = country.commonName.ToString()
+                });
+            }
+            return selectList;
         }
 
         // GET: Cities
         public async Task<IActionResult> Index()
         {
-              return _context.Cities != null ? 
-                          View(await _context.Cities.ToListAsync()) :
+              return db.Cities != null ? 
+                          View(await db.Cities.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Cities'  is null.");
         }
 
         // GET: Cities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Cities == null)
+            if (id == null || db.Cities == null)
             {
                 return NotFound();
             }
 
-            var city = await _context.Cities
+            var city = await db.Cities
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (city == null)
             {
@@ -48,7 +72,9 @@ namespace Traveling_Platform.Controllers
         // GET: Cities/Create
         public IActionResult Create()
         {
-            return View();
+            City city = new City();
+            city.State = GetAllCountries();
+            return View(city);
         }
 
         // POST: Cities/Create
@@ -60,8 +86,8 @@ namespace Traveling_Platform.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(city);
-                await _context.SaveChangesAsync();
+                db.Add(city);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(city);
@@ -70,12 +96,12 @@ namespace Traveling_Platform.Controllers
         // GET: Cities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Cities == null)
+            if (id == null || db.Cities == null)
             {
                 return NotFound();
             }
 
-            var city = await _context.Cities.FindAsync(id);
+            var city = await db.Cities.FindAsync(id);
             if (city == null)
             {
                 return NotFound();
@@ -99,8 +125,8 @@ namespace Traveling_Platform.Controllers
             {
                 try
                 {
-                    _context.Update(city);
-                    await _context.SaveChangesAsync();
+                    db.Update(city);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,12 +147,12 @@ namespace Traveling_Platform.Controllers
         // GET: Cities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Cities == null)
+            if (id == null || db.Cities == null)
             {
                 return NotFound();
             }
 
-            var city = await _context.Cities
+            var city = await db.Cities
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (city == null)
             {
@@ -141,23 +167,23 @@ namespace Traveling_Platform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Cities == null)
+            if (db.Cities == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Cities'  is null.");
             }
-            var city = await _context.Cities.FindAsync(id);
+            var city = await db.Cities.FindAsync(id);
             if (city != null)
             {
-                _context.Cities.Remove(city);
+                db.Cities.Remove(city);
             }
             
-            await _context.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CityExists(int id)
         {
-          return (_context.Cities?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (db.Cities?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

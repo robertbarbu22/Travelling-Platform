@@ -27,7 +27,7 @@ namespace Traveling_Platform.Data
 
         public DbSet<Room> Rooms { get; set; }
 
-        public DbSet<Traveling_Platform.Models.Image>? Image { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
 
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

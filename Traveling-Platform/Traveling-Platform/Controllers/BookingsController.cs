@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Traveling_Platform.Data;
 using Traveling_Platform.Models;
+using System.Dynamic;
 
 namespace Traveling_Platform.Controllers
 {
@@ -33,11 +34,24 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Bookings
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return db.Bookings != null ? 
-                          View(await db.Bookings.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Bookings'  is null.");
+            //dynamic model = new ExpandoObject();
+
+            var bookings = from book in db.Bookings
+                             select new
+                             {
+                                 bookdate = book.BookingDate,
+                                 checkin = book.Checkin,
+                                 checkout = book.Checkout,
+                                 email = db.Users.Find(book.IdUser).Email,
+                                 hotel = db.Hotels.Find(book.IdHotel).name,
+                                 room = db.Rooms.Find(book.IdRoom).Name
+                             };
+
+            ViewBag.bookings = bookings;
+
+            return View();
         }
 
         // GET: Bookings/Details/5

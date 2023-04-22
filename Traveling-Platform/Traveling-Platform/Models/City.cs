@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Traveling_Platform.Models
@@ -19,5 +20,8 @@ namespace Traveling_Platform.Models
         public Country? Country { get; set; }
 
         public virtual ICollection<Hotel>? Hotels { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem>? State { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,30 +13,37 @@ namespace Traveling_Platform.Controllers
 {
     public class MessagesController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public MessagesController(ApplicationDbContext context)
+        private readonly ApplicationDbContext db;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public MessagesController(
+        ApplicationDbContext context,
+        UserManager<ApplicationUser> userManager,
+        RoleManager<IdentityRole> roleManager
+        )
         {
-            _context = context;
+            db = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // GET: Messages
         public async Task<IActionResult> Index()
         {
-              return _context.Messages != null ? 
-                          View(await _context.Messages.ToListAsync()) :
+              return db.Messages != null ? 
+                          View(await db.Messages.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Messages'  is null.");
         }
 
         // GET: Messages/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Messages == null)
+            if (id == null || db.Messages == null)
             {
                 return NotFound();
             }
 
-            var message = await _context.Messages
+            var message = await db.Messages
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (message == null)
             {
@@ -60,8 +68,8 @@ namespace Traveling_Platform.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(message);
-                await _context.SaveChangesAsync();
+                db.Add(message);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(message);
@@ -70,12 +78,12 @@ namespace Traveling_Platform.Controllers
         // GET: Messages/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Messages == null)
+            if (id == null || db.Messages == null)
             {
                 return NotFound();
             }
 
-            var message = await _context.Messages.FindAsync(id);
+            var message = await db.Messages.FindAsync(id);
             if (message == null)
             {
                 return NotFound();
@@ -99,8 +107,8 @@ namespace Traveling_Platform.Controllers
             {
                 try
                 {
-                    _context.Update(message);
-                    await _context.SaveChangesAsync();
+                    db.Update(message);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,12 +129,12 @@ namespace Traveling_Platform.Controllers
         // GET: Messages/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Messages == null)
+            if (id == null || db.Messages == null)
             {
                 return NotFound();
             }
 
-            var message = await _context.Messages
+            var message = await db.Messages
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (message == null)
             {
@@ -141,23 +149,23 @@ namespace Traveling_Platform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Messages == null)
+            if (db.Messages == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Messages'  is null.");
             }
-            var message = await _context.Messages.FindAsync(id);
+            var message = await db.Messages.FindAsync(id);
             if (message != null)
             {
-                _context.Messages.Remove(message);
+                db.Messages.Remove(message);
             }
             
-            await _context.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MessageExists(int id)
         {
-          return (_context.Messages?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (db.Messages?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

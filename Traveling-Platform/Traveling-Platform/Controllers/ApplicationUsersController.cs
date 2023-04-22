@@ -8,7 +8,7 @@ using Traveling_Platform.Data;
 using System.Data;
 
 
-namespace SchoolChatOriginal.Controllers
+namespace Traveling_Platform.Controllers
 {
     public class ApplicationUsersController : Controller
     {

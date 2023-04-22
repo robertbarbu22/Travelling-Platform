@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,30 +14,68 @@ namespace Traveling_Platform.Controllers
 {
     public class RoomsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public RoomsController(ApplicationDbContext context)
+        private readonly ApplicationDbContext db;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public RoomsController(
+        ApplicationDbContext context,
+        UserManager<ApplicationUser> userManager,
+        RoleManager<IdentityRole> roleManager
+        )
         {
-            _context = context;
+            db = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+
+        public async Task<List<Hotel>> GetHotelsOfCurrentUserAsync()
+        {
+            string currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (currentUserId == null)
+            {
+                return new List<Hotel>(); // Return an empty list if the user is not authenticated.
+            }
+
+            var currentUser = await _userManager.Users.Include(u => u.Hotels).SingleOrDefaultAsync(u => u.Id == currentUserId);
+            return currentUser.Hotels.ToList();
+        }
+
+        public IEnumerable<SelectListItem> GetAllHotels()
+        {
+            var selectList = new List<SelectListItem>();
+            string id_user = _userManager.GetUserId(User);
+            var hotels = from cat in db.Hotels.Where(h => h.id_manager == id_user)
+                            select cat;
+            foreach (var hotel in hotels)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = hotel.id_hotel.ToString(),
+                    Text = hotel.name.ToString()
+                });
+            }
+
+            return selectList;
         }
 
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
-              return _context.Rooms != null ? 
-                          View(await _context.Rooms.ToListAsync()) :
+              return db.Rooms != null ? 
+                          View(await db.Rooms.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Rooms'  is null.");
         }
 
         // GET: Rooms/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || db.Rooms == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms
+            var room = await db.Rooms
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (room == null)
             {
@@ -48,7 +88,9 @@ namespace Traveling_Platform.Controllers
         // GET: Rooms/Create
         public IActionResult Create()
         {
-            return View();
+            Room room = new Room();
+            room.Hotels = GetAllHotels();
+            return View(room);
         }
 
         // POST: Rooms/Create
@@ -60,8 +102,8 @@ namespace Traveling_Platform.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(room);
-                await _context.SaveChangesAsync();
+                db.Add(room);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(room);
@@ -70,12 +112,12 @@ namespace Traveling_Platform.Controllers
         // GET: Rooms/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || db.Rooms == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms.FindAsync(id);
+            var room = await db.Rooms.FindAsync(id);
             if (room == null)
             {
                 return NotFound();
@@ -99,8 +141,8 @@ namespace Traveling_Platform.Controllers
             {
                 try
                 {
-                    _context.Update(room);
-                    await _context.SaveChangesAsync();
+                    db.Update(room);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,12 +163,12 @@ namespace Traveling_Platform.Controllers
         // GET: Rooms/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || db.Rooms == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms
+            var room = await db.Rooms
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (room == null)
             {
@@ -141,23 +183,23 @@ namespace Traveling_Platform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Rooms == null)
+            if (db.Rooms == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Rooms'  is null.");
             }
-            var room = await _context.Rooms.FindAsync(id);
+            var room = await db.Rooms.FindAsync(id);
             if (room != null)
             {
-                _context.Rooms.Remove(room);
+                db.Rooms.Remove(room);
             }
             
-            await _context.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RoomExists(int id)
         {
-          return (_context.Rooms?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (db.Rooms?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

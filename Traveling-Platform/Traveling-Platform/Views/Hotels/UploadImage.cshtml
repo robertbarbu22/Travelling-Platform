@@ -1,0 +1,26 @@
+﻿@model Traveling_Platform.Models.Hotel
+
+<form enctype="multipart/form-data" asp-controller="Hotels" asp-action="Create">
+    <input class="form-control" placeholder="Hotel Name" type="text" name="name" />
+    <br />
+    <textarea class="form-control" placeholder="Hotel Description" style="width: 100%; height: 100px;" name="description"></textarea>
+    <br />
+    <input class="form-control" placeholder="Hotel Contact Phone Number" type="text" name="PhoneNumber" />
+    <br />
+    <label>Select City</label>
+    @Html.DropDownListFor(m => m.id_city, new SelectList(Model.Cities, "Value", "Text"),
+            "Select City", new {@class = "form-control"})
+    @Html.ValidationMessageFor(m => m.id_city, null, new {@class = "text-danger"})
+    <br />
+
+    <br />
+    @Html.DropDownListFor(m => m.id_manager, new SelectList(Model.Managers, "Value", "Text"),
+            "Select Manager", new {@class = "form-control"})
+    @Html.ValidationMessageFor(m => m.id_manager, null, new {@class = "text-danger"})
+    <br />
+
+    <br />
+    <input class="form-control" type="file" name="MainImage" />
+    <br />
+    <input class="btn btn-success" type="submit" value="Upload" />
+</form>

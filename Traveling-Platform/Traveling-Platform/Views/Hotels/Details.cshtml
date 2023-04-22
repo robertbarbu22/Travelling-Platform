@@ -8,39 +8,14 @@
 
 <div>
     <h4>Hotel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_city)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_city)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_manager)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_manager)
-        </dd>
-    </dl>
+    <p>Name: @ViewBag.Hotel.Name</p>
+    <p>Description: @ViewBag.Hotel.Description</p>
+    <p>Contact: @ViewBag.Hotel.PhoneNumber</p>
+    <p>Manager's' Email: @ViewBag.Hotel.ManagerEmail</p>
+    <p>City: @ViewBag.Hotel.CityName</p>
+    @*<p>Country: @ViewBag.Hotel.Country</p>*@
+    <img src="@("data:image/png;base64," + ViewBag.PictureBase64)" alt="Hotel Picture" />
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.id_hotel">Edit</a> |

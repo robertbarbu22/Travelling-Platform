@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,30 +13,37 @@ namespace Traveling_Platform.Controllers
 {
     public class ReviewsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public ReviewsController(ApplicationDbContext context)
+        private readonly ApplicationDbContext db;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public ReviewsController(
+        ApplicationDbContext context,
+        UserManager<ApplicationUser> userManager,
+        RoleManager<IdentityRole> roleManager
+        )
         {
-            _context = context;
+            db = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // GET: Reviews
         public async Task<IActionResult> Index()
         {
-              return _context.Reviews != null ? 
-                          View(await _context.Reviews.ToListAsync()) :
+              return db.Reviews != null ? 
+                          View(await db.Reviews.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Reviews'  is null.");
         }
 
         // GET: Reviews/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Reviews == null)
+            if (id == null || db.Reviews == null)
             {
                 return NotFound();
             }
 
-            var review = await _context.Reviews
+            var review = await db.Reviews
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (review == null)
             {
@@ -60,8 +68,8 @@ namespace Traveling_Platform.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(review);
-                await _context.SaveChangesAsync();
+                db.Add(review);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(review);
@@ -70,12 +78,12 @@ namespace Traveling_Platform.Controllers
         // GET: Reviews/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Reviews == null)
+            if (id == null || db.Reviews == null)
             {
                 return NotFound();
             }
 
-            var review = await _context.Reviews.FindAsync(id);
+            var review = await db.Reviews.FindAsync(id);
             if (review == null)
             {
                 return NotFound();
@@ -99,8 +107,8 @@ namespace Traveling_Platform.Controllers
             {
                 try
                 {
-                    _context.Update(review);
-                    await _context.SaveChangesAsync();
+                    db.Update(review);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,12 +129,12 @@ namespace Traveling_Platform.Controllers
         // GET: Reviews/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Reviews == null)
+            if (id == null || db.Reviews == null)
             {
                 return NotFound();
             }
 
-            var review = await _context.Reviews
+            var review = await db.Reviews
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (review == null)
             {
@@ -141,23 +149,23 @@ namespace Traveling_Platform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Reviews == null)
+            if (db.Reviews == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Reviews'  is null.");
             }
-            var review = await _context.Reviews.FindAsync(id);
+            var review = await db.Reviews.FindAsync(id);
             if (review != null)
             {
-                _context.Reviews.Remove(review);
+                db.Reviews.Remove(review);
             }
             
-            await _context.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ReviewExists(int id)
         {
-          return (_context.Reviews?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (db.Reviews?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

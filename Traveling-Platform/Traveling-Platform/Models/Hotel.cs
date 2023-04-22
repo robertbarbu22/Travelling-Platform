@@ -1,15 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
+using System.Drawing;
 
 namespace Traveling_Platform.Models
 {
     public class Hotel
     {
-        //de inclus cumva poze
         [Key]
         public int id_hotel { get; set; }
 
-        [Required]
         public string name { get; set; }
 
         public string description { get; set; }
@@ -19,12 +20,23 @@ namespace Traveling_Platform.Models
         public int id_city { get; set; }
 
         [NotMapped]
+        public Picture MainImage { get; set; }
+
+        public string? ImagePath { get; set; }
+
+        [NotMapped]
         public virtual City? City { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem>? Cities { get; set; }
 
         public string id_manager { get; set; }
 
         [NotMapped]
         public virtual ApplicationUser? Manager { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem>? Managers { get; set; }
 
         public virtual ICollection<ApplicationUser>? Receptionists { get; set;}
 
@@ -36,6 +48,6 @@ namespace Traveling_Platform.Models
         
         public virtual ICollection<Message>? Messages { get; set;}
 
-        public virtual ICollection<Image>? Images { get; set; }
+        public virtual ICollection<Picture>? Pictures { get; set; }
     }
 }

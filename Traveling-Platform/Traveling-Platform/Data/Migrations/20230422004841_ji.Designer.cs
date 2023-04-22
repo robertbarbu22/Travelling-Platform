@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Traveling_Platform.Data;
 
@@ -11,9 +12,11 @@ using Traveling_Platform.Data;
 namespace Traveling_Platform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230422004841_ji")]
+    partial class ji
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -328,9 +331,6 @@ namespace Traveling_Platform.Data.Migrations
                     b.Property<string>("tag")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("commonName")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -436,9 +436,6 @@ namespace Traveling_Platform.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Countrytag")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<byte[]>("Data")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
@@ -447,7 +444,7 @@ namespace Traveling_Platform.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("HotelId")
+                    b.Property<int>("HotelId")
                         .HasColumnType("int");
 
                     b.Property<string>("Tag")
@@ -455,8 +452,6 @@ namespace Traveling_Platform.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Countrytag");
 
                     b.HasIndex("HotelId");
 
@@ -654,13 +649,11 @@ namespace Traveling_Platform.Data.Migrations
 
             modelBuilder.Entity("Traveling_Platform.Models.Picture", b =>
                 {
-                    b.HasOne("Traveling_Platform.Models.Country", null)
-                        .WithMany("Pictures")
-                        .HasForeignKey("Countrytag");
-
                     b.HasOne("Traveling_Platform.Models.Hotel", "Hotel")
                         .WithMany("Pictures")
-                        .HasForeignKey("HotelId");
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Hotel");
                 });
@@ -702,8 +695,6 @@ namespace Traveling_Platform.Data.Migrations
             modelBuilder.Entity("Traveling_Platform.Models.Country", b =>
                 {
                     b.Navigation("Cities");
-
-                    b.Navigation("Pictures");
                 });
 
             modelBuilder.Entity("Traveling_Platform.Models.Hotel", b =>

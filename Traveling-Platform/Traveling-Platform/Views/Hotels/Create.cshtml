@@ -1,4 +1,4 @@
-﻿@model Traveling_Platform.Models.Hotel
+﻿@model Traveling_Platform.Models.HotelViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,17 +10,17 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
-                <input asp-for="description" class="form-control" />
-                <span asp-validation-for="description" class="text-danger"></span>
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
@@ -28,18 +28,24 @@
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="id_city" class="control-label"></label>
-                <input asp-for="id_city" class="form-control" />
-                <span asp-validation-for="id_city" class="text-danger"></span>
+                <label asp-for="CityId" class="control-label"></label>
+                <br />
+                <select asp-for="CityId" asp-items="@Model.Cit">
+                    <option>Please select one</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="id_manager" class="control-label"></label>
-                <input asp-for="id_manager" class="form-control" />
-                <span asp-validation-for="id_manager" class="text-danger"></span>
+                <label asp-for="ManagerId" class="control-label"></label>
+                <br />
+                <select asp-for="ManagerId" asp-items="@Model.Man">
+                    <option>Please select one</option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="PictureFile" class="control-label"></label>
+                <input asp-for="PictureFile" type="file" class="form-control" />
             </div>
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 </div>
