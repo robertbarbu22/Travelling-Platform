@@ -56,6 +56,7 @@ namespace Traveling_Platform.Controllers
         // GET: Reviews/Create
         public IActionResult Create()
         {
+            ViewBag.id_hotel = TempData["hotel_id"];
             return View();
         }
 
@@ -64,7 +65,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Text,Time,IdClient,IdHotel")] Review review)
+        public async Task<IActionResult> Create(Review review)
         {
             if (ModelState.IsValid)
             {

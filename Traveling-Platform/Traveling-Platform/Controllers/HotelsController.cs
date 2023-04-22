@@ -110,6 +110,8 @@ namespace Traveling_Platform.Controllers
             ViewBag.PictureBase64 = pictureBase64;
             ViewBag.Hotel = hotel;
 
+            TempData["hotid"] = id;
+
             return View();
         }
 

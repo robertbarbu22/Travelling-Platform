@@ -15,6 +15,16 @@
 
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_hotel">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.id_hotel">Edit</a> 
     <a asp-action="Index">Back to List</a>
+    @using (Html.BeginForm(actionName: "Create", controllerName: "Reviews", method: FormMethod.Post))
+    {
+        TempData["hotel_id"] = ViewBag.Hotel.Id;
+
+        @Html.Label("TextMessage", "Message")
+        <br />
+        @Html.TextBox("TextMessage", null, new {@class = "form-control"})
+        <br />
+        <button class="btn btn-success" type="submit">Send your review!</button>
+    }
 </div>

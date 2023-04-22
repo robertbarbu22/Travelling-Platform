@@ -12,25 +12,11 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="id_hotel" value="@ViewBag.id_hotel"/>
             <div class="form-group">
                 <label asp-for="Text" class="control-label"></label>
                 <input asp-for="Text" class="form-control" />
                 <span asp-validation-for="Text" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Time" class="control-label"></label>
-                <input asp-for="Time" class="form-control" />
-                <span asp-validation-for="Time" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdClient" class="control-label"></label>
-                <input asp-for="IdClient" class="form-control" />
-                <span asp-validation-for="IdClient" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdHotel" class="control-label"></label>
-                <input asp-for="IdHotel" class="form-control" />
-                <span asp-validation-for="IdHotel" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

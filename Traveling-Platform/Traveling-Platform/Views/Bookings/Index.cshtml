@@ -1,65 +1,66 @@
-﻿@model IEnumerable<Traveling_Platform.Models.Booking>
+﻿<h1>Index</h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <p>Booking date</p>
+                </th>
+                <th>
+                    <p>Checkin</p>
+                </th>
+                <th>
+                    <p>Checkout</p>
+                </th>
+                <th>
+                    <p>Email</p>
+                </th>
+                <th>
+                    <p>Hotel</p>
+                </th>
+                <th>
+                    <p>City</p>
+                </th>
+                <th>
+                    <p>Room Type</p>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Lista)
+            {
+                <tr>
+                    <td>
+                        @item.bookdate
+                    </td>
+                    <td>
+                        @item.checkin
+                    </td>
+                    <td>
+                        @item.checkout
+                    </td>
+                    <td>
+                        @item.email
+                    </td>
+                    <td>
+                        @item.hotel
+                    </td>
+                    <td>
+                        @item.city
+                    </td>
+                    <td>
+                        @item.room
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BookingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Checkin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Checkout)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdHotel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdRoom)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Checkin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Checkout)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.IdUser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdHotel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdRoom)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

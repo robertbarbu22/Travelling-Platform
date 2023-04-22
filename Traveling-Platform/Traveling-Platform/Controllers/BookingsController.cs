@@ -41,13 +41,23 @@ namespace Traveling_Platform.Controllers
                 var adminbookings = from book in db.Bookings
                                select new
                                {
+                                   Id = book.Id,
                                    bookdate = book.BookingDate,
                                    checkin = book.Checkin,
                                    checkout = book.Checkout,
-                                   email = db.Users.Find(book.IdUser).Email,
-                                   hotel = db.Hotels.Find(book.IdHotel).name,
-                                   room = db.Rooms.Find(book.IdRoom).Name
+                                   email = (from usr in db.Users where usr.Id == book.IdUser select usr.Email).First(),
+                                   hotel = (from hot in db.Hotels where hot.id_hotel == book.IdHotel select hot.name).First(),
+                                   city = (from cit in db.Cities where (cit.Id == 
+                                           (from hot in db.Hotels where hot.id_hotel == book.IdHotel select hot.id_city).First())
+                                           select cit.Name).First(),
+                                   room = (from rom in db.Rooms where rom.Id == book.IdRoom select rom.Name).First()
                                };
+
+                var lista = adminbookings.ToList();
+
+                ViewBag.Lista = lista;
+
+                return View();
             }
 
             //ViewBag.Utilizator = db.Users.Find()
