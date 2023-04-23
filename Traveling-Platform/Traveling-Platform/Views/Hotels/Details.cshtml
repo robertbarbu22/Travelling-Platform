@@ -19,11 +19,13 @@
     <a asp-action="Index">Back to List</a>
     @using (Html.BeginForm(actionName: "Create", controllerName: "Reviews", method: FormMethod.Post))
     {
-        TempData["hotel_id"] = ViewBag.Hotel.Id;
+        <input type="hidden" name="IdHotel" value="@ViewBag.Hotel.Id" />
 
-        @Html.Label("TextMessage", "Message")
+        <input type="hidden" name="IdClient" value="@ViewBag.Hotel.us" />
+
+        @Html.Label("Text", "Message")
         <br />
-        @Html.TextBox("TextMessage", null, new {@class = "form-control"})
+        @Html.TextBox("Text", null, new {@class = "form-control"})
         <br />
         <button class="btn btn-success" type="submit">Send your review!</button>
     }

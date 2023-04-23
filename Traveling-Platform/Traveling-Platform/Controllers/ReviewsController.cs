@@ -36,15 +36,15 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public  IActionResult Details(int? id)
         {
             if (id == null || db.Reviews == null)
             {
                 return NotFound();
             }
 
-            var review = await db.Reviews
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var review = db.Reviews
+                .Where(m => m.IdHotel == id);
             if (review == null)
             {
                 return NotFound();
@@ -56,8 +56,7 @@ namespace Traveling_Platform.Controllers
         // GET: Reviews/Create
         public IActionResult Create()
         {
-            ViewBag.id_hotel = TempData["hotel_id"];
-            return View();
+            return RedirectToAction("Index");
         }
 
         // POST: Reviews/Create
@@ -65,15 +64,17 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Review review)
+        public async Task<IActionResult> Create([FromForm] Review review)
         {
             if (ModelState.IsValid)
             {
+                review.Time= DateTime.Now;
                 db.Add(review);
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(review);
+            else { return Redirect("/Hotels/Details/" + review.IdHotel);
+            }
         }
 
         // GET: Reviews/Edit/5
