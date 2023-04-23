@@ -95,7 +95,8 @@ namespace Traveling_Platform.Controllers
                     CityName = hcm.City.Name,
                     //Country = hcm.City.Country.officialName,
                     ManagerEmail = hcm.Manager,
-                    MainImage = hcm.Hotel.Pictures.FirstOrDefault(p => p.Tag == "Main Image")
+                    MainImage = hcm.Hotel.Pictures.FirstOrDefault(p => p.Tag == "Main Image"),
+                    us = _userManager.GetUserId(User)
                 })
                 .FirstOrDefaultAsync();
 
