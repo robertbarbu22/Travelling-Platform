@@ -1,4 +1,9 @@
-﻿@model Traveling_Platform.Models.ApplicationUser
+﻿<head>
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+
+@model Traveling_Platform.Models.ApplicationUser
 
 @using (Html.BeginForm(actionName: "Edit", controllerName: "ApplicationUsers", method: FormMethod.Post, routeValues: new { id = @Model.Id }))
 {
@@ -28,6 +33,26 @@
     <br />
 
     @Html.EditorFor(m => m.PhoneNumber)
+
+    <br />
+    <br />
+
+    <i class="bi bi-phone"></i>
+    @Html.Label("Firstname", "First name")
+
+    <br />
+
+    @Html.EditorFor(m => m.FirstName)
+
+    <br />
+    <br />
+
+    <i class="bi bi-phone"></i>
+    @Html.Label("LastName", "Last name")
+
+    <br />
+
+    @Html.EditorFor(m => m.LastName)
 
     <br />
     <br />

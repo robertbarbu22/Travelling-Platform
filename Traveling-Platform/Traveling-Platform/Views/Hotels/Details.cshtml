@@ -15,7 +15,7 @@
 
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_hotel">Edit</a> 
+    <a asp-action="Edit" asp-route-id="@ViewBag.Hotel.Id">Edit</a>
     <a asp-action="Index">Back to List</a>
     @using (Html.BeginForm(actionName: "Create", controllerName: "Reviews", method: FormMethod.Post))
     {
@@ -29,4 +29,9 @@
         <br />
         <button class="btn btn-success" type="submit">Send your review!</button>
     }
+
+    <button class="btn btn-success">
+        <a asp-controller="Reviews" asp-action="Index" asp-route-id="@ViewBag.Hotel.Id">View this hotel's reviews</a>
+    </button>
+
 </div>
