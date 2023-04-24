@@ -34,8 +34,13 @@ namespace Traveling_Platform.Controllers
             return View();
         }
 
-        public IActionResult Show(string id)
+        public IActionResult Show(string? id)
         {
+            if (id == null)
+            {
+                id = _userManager.GetUserId(User);
+            }
+
             ApplicationUser appuser = db.Users.Find(id);
             try
             {
@@ -195,27 +200,26 @@ namespace Traveling_Platform.Controllers
         {
             ApplicationUser user = db.Users.Find(id);
 
-            user.AllRoles = GetAllRoles();
-
+            //user.AllRoles = GetAllRoles();
             user.UserName = newData.UserName;
             user.Email = newData.Email;
-            //user.FirstName = newData.FirstName;
-            //user.LastName = newData.LastName;
+            user.FirstName = newData.FirstName;
+            user.LastName = newData.LastName;
             user.PhoneNumber = newData.PhoneNumber;
 
             ///chestii
 
             // Cautam toate rolurile din baza de date
-            var roles = db.Roles.ToList();
+            //var roles = db.Roles.ToList();
 
-            foreach (var role in roles)
+            /*foreach (var role in roles)
             {
                 // Scoatem userul din rolurile anterioare
                 await _userManager.RemoveFromRoleAsync(user, role.Name);
-            }
+            }*/
             // Adaugam noul rol selectat
-            var roleName = await _roleManager.FindByIdAsync(newRole);
-            await _userManager.AddToRoleAsync(user, roleName.ToString());
+            //var roleName = await _roleManager.FindByIdAsync(newRole);
+            //await _userManager.AddToRoleAsync(user, roleName.ToString());
 
             db.SaveChanges();
 

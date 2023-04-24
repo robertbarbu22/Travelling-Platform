@@ -28,11 +28,14 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? id)
         {
-              return db.Reviews != null ? 
-                          View(await db.Reviews.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Reviews'  is null.");
+            if(id == null)
+            {
+                return View(db.Reviews.ToList());
+            }
+
+            return View(db.Reviews.Where(r => r.IdHotel == id).ToList());
         }
 
         // GET: Reviews/Details/5
