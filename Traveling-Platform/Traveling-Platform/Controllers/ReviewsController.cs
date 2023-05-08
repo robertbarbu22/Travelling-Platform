@@ -34,7 +34,8 @@ namespace Traveling_Platform.Controllers
             {
                 return View(db.Reviews.ToList());
             }
-
+            var hotel = db.Hotels.Find(id);
+            ViewBag.Nume = hotel.name;
             return View(db.Reviews.Where(r => r.IdHotel == id).ToList());
         }
 
