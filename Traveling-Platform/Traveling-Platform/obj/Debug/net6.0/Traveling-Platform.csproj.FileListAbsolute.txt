@@ -1949,3 +1949,4 @@ C:\Users\Radu\Desktop\MSD\Travelling-Platform\Traveling-Platform\Traveling-Platf
 C:\Users\Radu\Desktop\MSD\Travelling-Platform\Traveling-Platform\Traveling-Platform\obj\Debug\net6.0\Traveling-Platform.genruntimeconfig.cache
 C:\Users\Radu\Desktop\MSD\Travelling-Platform\Traveling-Platform\Traveling-Platform\obj\Debug\net6.0\ref\Traveling-Platform.dll
 C:\Users\Radu\Desktop\MSD\Travelling-Platform\Traveling-Platform\Traveling-Platform\bin\Debug\net6.0\libman.json
+D:\Users\ruxiii\OneDrive\Desktop\MDS\Travelling-Platform\Traveling-Platform\Traveling-Platform\bin\Debug\net6.0\libman.json

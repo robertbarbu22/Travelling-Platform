@@ -74,7 +74,7 @@ namespace Traveling_Platform.Controllers
                 review.Time= DateTime.Now;
                 db.Add(review);
                 await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new { id = review.IdHotel });
             }
             else { return Redirect("/Hotels/Details/" + review.IdHotel);
             }
@@ -165,7 +165,7 @@ namespace Traveling_Platform.Controllers
             }
             
             await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new { id = review.IdHotel });
         }
 
         private bool ReviewExists(int id)
