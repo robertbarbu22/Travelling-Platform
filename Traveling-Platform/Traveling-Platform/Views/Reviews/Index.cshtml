@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Traveling_Platform.Models.Review>
+﻿@model List<Traveling_Platform.Models.ReviewViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Text)
+                @Html.DisplayNameFor(model => model[0].Text)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Time)
+                @Html.DisplayNameFor(model => model[0].Time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdClient)
+                @Html.DisplayNameFor(model => model[0].ClientName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdHotel)
+                @Html.DisplayNameFor(model => model[0].HotelName)
             </th>
             <th></th>
         </tr>
@@ -37,10 +37,10 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdClient)
+                @Html.DisplayFor(modelItem => item.ClientName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdHotel)
+                @Html.DisplayFor(modelItem => item.HotelName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
