@@ -36,7 +36,18 @@ namespace Traveling_Platform.Controllers
             }
             var hotel = db.Hotels.Find(id);
             ViewBag.Nume = hotel.name;
-            return View(db.Reviews.Where(r => r.IdHotel == id).ToList());
+
+            List<ReviewViewModel> reviews=new List<ReviewViewModel>();
+            foreach (Review rev in db.Reviews.Where(r => r.IdHotel == id).ToList())
+            { ReviewViewModel review = new ReviewViewModel();
+                review.Time = rev.Time;
+                review.Text = rev.Text;
+                review.ClientName = db.Users.Find(rev.IdClient).FirstName + " " + db.Users.Find(rev.IdClient).LastName;
+                review.HotelName = db.Hotels.Find(rev.IdHotel).name;
+                reviews.Add(review);
+            }
+
+            return View(reviews);
         }
 
         // GET: Reviews/Details/5
@@ -47,8 +58,13 @@ namespace Traveling_Platform.Controllers
                 return NotFound();
             }
 
-            var review = db.Reviews
-                .Where(m => m.IdHotel == id);
+            ReviewViewModel review = new ReviewViewModel();
+            review.Time = db.Reviews.Find(id).Time;
+            review.Text=db.Reviews.Find(id).Text;
+            review.ClientName = db.Users.Find(db.Reviews.Find(id).IdClient).FirstName + " "+ db.Users.Find(db.Reviews.Find(id).IdClient).LastName;
+            review.HotelName =db.Hotels.Find(( db.Reviews.Find(id).IdHotel)).name;
+
+
             if (review == null)
             {
                 return NotFound();
