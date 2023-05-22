@@ -90,9 +90,12 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Bookings/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            return View();
+            Booking book = new Booking();
+            book.IdHotel = id;
+            book.IdUser = _userManager.GetUserId(User);
+            return View(book);
         }
 
         // POST: Bookings/Create
@@ -100,7 +103,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BookingDate,Checkin,Checkout,IdUser,IdHotel,IdRoom")] Booking booking)
+        public async Task<IActionResult> Create(Booking booking)
         {
             if (ModelState.IsValid)
             {

@@ -14,6 +14,7 @@
     <img src="@("data:image/png;base64," + ViewBag.PictureBase64)" alt="Hotel Picture" />
 
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@ViewBag.Hotel.Id">Edit</a>
     <a asp-action="Index">Back to List</a>
@@ -33,5 +34,41 @@
     <button class="btn btn-success">
         <a asp-controller="Reviews" asp-action="Index" asp-route-id="@ViewBag.Hotel.Id">View this hotel's reviews</a>
     </button>
+
+</div>
+
+<div>
+  @*
+    @using (Html.BeginForm(actionName: "Create", controllerName: "Bookings", method: FormMethod.Post))
+    {
+
+        @Html.Label("CheckInDate", "Check In Date")
+        <br />
+        @Html.TextBox("CheckInDate", null, new {@class = "form-control"})
+        <br />
+
+        @Html.Label("CheckOutDate", "Check Out Date")
+        <br/>
+        @Html.TextBox("CheckOutDate", null, new {@class = "form-control"})
+        <br/>
+
+        <input type="hidden" name="IdHotel" value="@ViewBag.Hotel.Id" />
+        <input type ="hidden" name="IdUser" value="@ViewBag.Hotel.us" />
+        ///aici punem IdCamera
+*@
+    <button class="btn btn-success">
+        <a asp-controller="Bookings" asp-action="Create" asp-route-id="@ViewBag.Hotel.Id">book</a>
+    </button>
+
+       
+
+      @*  <input type="hidden" name="BookingDate" value="@ViewBag.Booking.us" />
+
+        @Html.Label("Text", "Message")
+        <br />
+        @Html.TextBox("Text", null, new {@class = "form-control"})
+        <br />
+        <button class="btn btn-success" type="submit">Send your review!</button>*@
+
 
 </div>
