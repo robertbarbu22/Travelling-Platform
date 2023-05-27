@@ -13,6 +13,47 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+
+h1 {
+    font-size: 50px;
 }
+
+h3{
+    font-size: 25px;
+}
+
+body {
+    background-color: #D3F4FB;
+    margin: 0px;
+}
+
+#titlu {
+    font-weight: bold;
+}
+
+#introducere {
+    font-weight: normal;
+}
+
+.text-center {
+    text-align: center !important;
+    vertical-align: middle;
+}
+
+.navbar {
+    background-color: #68BBE3 !important;
+    border: none !important;
+    box-shadow: 0 5px 20px #003060 !important;
+}
+
+#jos {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    background-color: #68BBE3;
+    box-shadow: 0 5px 20px #003060 !important;
+}
+
+
