@@ -1,46 +1,5 @@
-﻿@*@model IEnumerable<Traveling_Platform.Models.Country>
+﻿<center><h1>All Countries</h1></center>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.commonName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.officialName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.commonName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.officialName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.tag">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.tag">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.tag">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
-<h2>All Countries</h2>
-<br />
 
 @if (ViewBag.Message != null)
 {
@@ -49,15 +8,15 @@
 <br />
 
 <p>
-    <button><a asp-action="Create">Create New</a></button></button>
-</p>
+    <button id="tari"><a asp-action="Create">Create New</a></button>
+</p> <br/>
 
 @* Motorul de cautare *@
 <form method="GET">
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search countries"
                name="search" value="@ViewBag.SearchString">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button id="cauta" class="btn btn-outline-success" type="submit">Search</button>
     </div>
 </form>
 
@@ -86,8 +45,10 @@
 
 @foreach (Traveling_Platform.Models.Country country in ViewBag.Countries)
 {
-    <div class="card">
-        @Html.Partial("CountryInfo", country )
+    <div id="ceva" class="card">
+        <div id="ceva1">
+            @Html.Partial("CountryInfo", country )
+        </div>
         <a class="btn btn-success" href="/Countries/Details/@country.tag">View Country</a>
         @if (User.IsInRole("Admin"))
         {

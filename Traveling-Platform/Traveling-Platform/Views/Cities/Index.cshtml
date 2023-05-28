@@ -5,7 +5,7 @@
 }
 
 <h1>All Cities</h1>
-
+<br/>
 <table class="table">
     <thead>
         <tr>
@@ -28,18 +28,25 @@
                 @Html.DisplayFor(modelItem => item.stateTag)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                <button id="details">
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                </button>
                 @if (User.IsInRole("Admin")){
-                   <a asp-action="Edit" asp-route-id="@item.Id"> | Edit</a>
-                   <a asp-action="Delete" asp-route-id="@item.Id"> | Delete</a>
+                   <button id="edit">
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                   </button>
+                   <button id="delete">
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </button>
                 }
             </td>
         </tr>
 }
     </tbody>
 
-    <p>
+    <button id="orasNou">
         <a asp-action="Create">New City</a>
-    </p>
+    </button>
+    <br/><br/>
 </table>
 

@@ -22,6 +22,16 @@ h3{
     font-size: 25px;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+    a:hover {
+        color: #68BBE3;
+    }
+
 body {
     background-color: #D3F4FB;
     margin: 0px;
@@ -55,5 +65,99 @@ body {
     background-color: #68BBE3;
     box-shadow: 0 5px 20px #003060 !important;
 }
+
+#tari {
+    background-color: #145DA0;
+    border-style: double;
+    border-color: #003060;
+    
+}
+
+#cauta {
+    background-color: #145DA0;
+    border-style: double;
+    border-color: #003060;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+    #cauta:hover {
+        color: #68BBE3;
+    }
+
+#ceva {
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius:25px;
+}
+
+.card-title {
+    background-color: #68BBE3;
+    color: black;
+    border-radius: 50px;
+}
+
+.btn-success {
+    color: black;
+    background-color: #FFF4BD;
+    border-color: #FEDE00;
+    border-radius: 25px;
+}
+
+    .btn-success:hover {
+        background-color: #68BBE3;
+        border-color: #68BBE3;
+        border-radius: 25px;
+    }
+
+#orasNou {
+    background-color: #145DA0;
+    border-style: double;
+    border-color: #003060;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+#orasNou:hover {
+    color: #68BBE3;
+}
+
+td{
+    text-decoration-color:black;
+}
+
+#details {
+    background-color: #145DA0;
+    border-style: double;
+    border-color: #003060;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+#edit {
+    background-color: #145DA0;
+    border-style: double;
+    border-color: #003060;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+#delete {
+    background-color: #145DA0;
+    border-style: double;
+    border-color: #003060;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+
+
 
 

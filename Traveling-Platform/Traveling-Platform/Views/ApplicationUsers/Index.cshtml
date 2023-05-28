@@ -1,13 +1,22 @@
-﻿<h2>All users</h2>
+﻿<h1>All users</h1>
 <br />
+
 @foreach (var appuser in ViewBag.Appusers)
 {
-    <p>@appuser.UserName
-        <div id="ceva">
-            <a href="/ApplicationUsers/Show/@appuser.Id">View user</a>
-            <a href="/ApplicationUsers/Delete/@appuser.Id">Delete user</a>
-        </div>
-    </p>
+    <h4>@appuser.UserName</h4>
+        <button id="details">
+                    <a asp-action="Details" asp-route-id="@appuser.Id">Details</a> 
+                </button>
+                @if (User.IsInRole("Admin")){
+                   <button id="edit">
+                        <a asp-action="Edit" asp-route-id="@appuser.Id">Edit</a>
+                   </button>
+                   <button id="delete">
+                        <a asp-action="Delete" asp-route-id="@appuser.Id">Delete</a>
+                    </button>
+                }
+
+    <br />
     <br />
     
 }
