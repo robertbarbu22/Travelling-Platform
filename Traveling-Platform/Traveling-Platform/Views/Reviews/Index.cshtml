@@ -13,34 +13,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model[0].Text)
+               <p>Text</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].Time)
+                <p>Time</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].ClientName)
+                <p>ClientName</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].HotelName)
+                <p>HotelName</p>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in ViewBag.revs) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Text)
+                <p>@item.Text</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Time)
+                <p>@item.Time</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClientName)
+                <p>@item.ClientName</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HotelName)
+                <p>@item.HotelName</p>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

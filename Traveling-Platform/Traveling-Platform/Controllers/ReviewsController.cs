@@ -28,6 +28,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews
+        /*
         public IActionResult Index(int? id)
         {
             if(id == null)
@@ -37,9 +38,36 @@ namespace Traveling_Platform.Controllers
             var hotel = db.Hotels.Find(id);
             ViewBag.Nume = hotel.name;
 
-            List<ReviewViewModel> reviews=new List<ReviewViewModel>();
+            var reviews=new List<ReviewViewModel>();
             foreach (Review rev in db.Reviews.Where(r => r.IdHotel == id).ToList())
             { ReviewViewModel review = new ReviewViewModel();
+                review.Id = rev.Id;
+                review.Time = rev.Time;
+                review.Text = rev.Text;
+                review.ClientName = db.Users.Find(rev.IdClient).FirstName + " " + db.Users.Find(rev.IdClient).LastName;
+                review.HotelName = db.Hotels.Find(rev.IdHotel).name;
+                reviews.Add(review);
+            }
+            ViewBag.revs = reviews;
+            return View();
+        } */
+
+        // GET: Reviews
+        public IActionResult Index(int? id)
+        {
+            if (id == null)
+            {
+                return View(db.Reviews.ToList());
+            }
+
+            var hotel = db.Hotels.Find(id);
+            ViewBag.Nume = hotel.name;
+
+            var reviews = new List<ReviewViewModel>();
+            foreach (Review rev in db.Reviews.Where(r => r.IdHotel == id).ToList())
+            {
+                ReviewViewModel review = new ReviewViewModel();
+                review.Id = rev.Id;
                 review.Time = rev.Time;
                 review.Text = rev.Text;
                 review.ClientName = db.Users.Find(rev.IdClient).FirstName + " " + db.Users.Find(rev.IdClient).LastName;
@@ -47,11 +75,13 @@ namespace Traveling_Platform.Controllers
                 reviews.Add(review);
             }
 
-            return View(reviews);
+            ViewBag.revs = reviews;
+            return View(); // Pass the 'reviews' list to the view
         }
 
+
         // GET: Reviews/Details/5
-        public  IActionResult Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null || db.Reviews == null)
             {
