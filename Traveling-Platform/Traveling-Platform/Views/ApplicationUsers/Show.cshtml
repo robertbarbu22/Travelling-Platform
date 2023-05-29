@@ -2,56 +2,56 @@
 
 @if (User.IsInRole("Admin"))
 {
-<p> Details about @Model.UserName :</p>
+<h2> Details about @Model.UserName :</h2>
 }
 else
 {
-<p> Personal Data :</p>
+<h2> Personal Data :</h2>
 }
-
-<p>Email: @Model.Email</p>
-<p>Role: @ViewBag.Role</p>
-<p>Phone Number: @Model.PhoneNumber</p>
-<p>First name: @Model.FirstName</p>
-<p>Last name: @Model.LastName</p>
-<div id="ceva1">
+<br/>
+<h4>Email: @Model.Email</h4>
+<h4>Role: @ViewBag.Role</h4>
+<h4>Phone Number: @Model.PhoneNumber</h4>
+<h4>First name: @Model.FirstName</h4>
+<h4>Last name: @Model.LastName</h4><br/>
+<button id="edit">
     <a href="/ApplicationUsers/Edit/@Model.Id">Edit personal data</a>
-</div>
-<br />
+</button>
+
 
 @if (User.IsInRole("Admin"))
 {
-    <div id="ceva2">
+    <button id="edit">
         <a href="/ApplicationUsers/Delete/@Model.Id">Delete user</a>
-    </div>
+    </button>
     <br />
 
     @if (ViewBag.Role == "User")
     {
-        <div id="ceva3">
+        <button id="edit">
             <a href="/ApplicationUsers/MakeManager/@Model.Id">Make Manager</a>
-        </div>
-        <div id="ceva4">
+        </button>
+        <button id="edit">
             <a href="/ApplicationUsers/MakeReceptionist/@Model.Id">Make Receptionist</a>
-        </div>
+        </button>
     }
     else if (ViewBag.Role == "HotelReceptionist")
     {
-        <div id="ceva5">
+        <button id="edit">
             <a href="/ApplicationUsers/MakeManager/@Model.Id">Make Manager</a>
-        </div>
-        <div id="ceva6">
+        </button>
+        <button id="edit">
             <a href="/ApplicationUsers/MakeUser/@Model.Id">Make User</a>
-        </div>
+        </button>
     }
     else if (ViewBag.Role == "HotelManager")
     {
-        <div id="ceva7">
+        <button id="edit">
             <a href="/ApplicationUsers/MakeReceptionist/@Model.Id">Make Receptionistr</a>
-        </div>
-        <div id="ceva8">
+        </button>
+        <button id="edit">
             <a href="/ApplicationUsers/MakeUser/@Model.Id">Make User</a>
-        </div>
+        </button>
     }
     <br />
 }

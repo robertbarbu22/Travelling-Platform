@@ -5,19 +5,18 @@
 }
 
 <h1>@ViewBag.Hotel.Name</h1>
-
+<br />
 <div>
-    <p>Description: @ViewBag.Hotel.Description</p>
-    <p>Contact: @ViewBag.Hotel.PhoneNumber</p>
-    <p>City: @ViewBag.Hotel.CityName</p>
-    <br/>
+    <h4>Description: @ViewBag.Hotel.Description</h4>
+    <h4>Contact: @ViewBag.Hotel.PhoneNumber</h4>
+    <h4>City: @ViewBag.Hotel.CityName</h4>
+    <br />
     <img src="@("data:image/png;base64," + ViewBag.PictureBase64)" alt="Hotel Picture" />
 
 </div>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@ViewBag.Hotel.Id">Edit</a>
-    <a asp-action="Index">Back to List</a>
+    <br />
     @using (Html.BeginForm(actionName: "Create", controllerName: "Reviews", method: FormMethod.Post))
     {
         <input type="hidden" name="IdHotel" value="@ViewBag.Hotel.Id" />
@@ -28,17 +27,17 @@
         <br />
         @Html.TextBox("Text", null, new {@class = "form-control"})
         <br />
-        <button class="btn btn-success" type="submit">Send your review!</button>
+        <button id="edit" type="submit">Send your review!</button>
     }
 
-    <button class="btn btn-success">
+    <button id="edit">
         <a asp-controller="Reviews" asp-action="Index" asp-route-id="@ViewBag.Hotel.Id">View this hotel's reviews</a>
     </button>
 
 </div>
 
-<div>
-  @*
+
+@*
     @using (Html.BeginForm(actionName: "Create", controllerName: "Bookings", method: FormMethod.Post))
     {
 
@@ -56,13 +55,13 @@
         <input type ="hidden" name="IdUser" value="@ViewBag.Hotel.us" />
         ///aici punem IdCamera
 *@
-    <button class="btn btn-success">
-        <a asp-controller="Bookings" asp-action="Create" asp-route-id="@ViewBag.Hotel.Id">book</a>
-    </button>
+<button id="edit">
+    <a asp-controller="Bookings" asp-action="Create" asp-route-id="@ViewBag.Hotel.Id">Book a room!</a>
+</button>
 
-       
 
-      @*  <input type="hidden" name="BookingDate" value="@ViewBag.Booking.us" />
+
+@*  <input type="hidden" name="BookingDate" value="@ViewBag.Booking.us" />
 
         @Html.Label("Text", "Message")
         <br />
@@ -70,5 +69,11 @@
         <br />
         <button class="btn btn-success" type="submit">Send your review!</button>*@
 
-
-</div>
+<br />
+<br />
+<button id="edit">
+    <a asp-action="Edit" asp-route-id="@ViewBag.Hotel.Id">Edit</a>
+</button>
+<button id="edit">
+    <a asp-action="Index">Back to List</a>
+</button>
