@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create a hotel</h1>
 
-<h4>Hotel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,43 +15,43 @@
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
                 <label asp-for="CityId" class="control-label"></label>
                 <br />
                 <select asp-for="CityId" asp-items="@Model.Cit">
                     <option>Please select one</option>
                 </select>
-            </div>
+            </div><br />
             <div class="form-group">
                 <label asp-for="ManagerId" class="control-label"></label>
                 <br />
                 <select asp-for="ManagerId" asp-items="@Model.Man">
                     <option>Please select one</option>
                 </select>
-            </div>
+            </div><br />
             <div class="form-group">
                 <label asp-for="PictureFile" class="control-label"></label>
                 <input asp-for="PictureFile" type="file" class="form-control" />
-            </div>
+            </div><br />
             <button type="submit" class="btn btn-primary">Create</button>
-        </form>
+        </form><br />
     </div>
 </div>
 
-<div>
+<button id="orasNou">
     <a asp-action="Index">Back to List</a>
-</div>
+</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

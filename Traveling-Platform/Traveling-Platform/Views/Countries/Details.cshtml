@@ -21,6 +21,10 @@
 <div>
     <img src="@("data:image/png;base64," + ViewBag.PictureBase64)" alt="Hotel Picture" />
     <br/><br/>
-    <a asp-action="Edit" asp-route-id="@Model?.tag">Edit Country</a> |
-    <a asp-action="Index">Back to List</a>
+    <button id="edit">
+        <a asp-action="Edit" asp-route-id="@Model?.tag">Edit Country</a>
+    </button>
+    <button id="edit">
+        <a asp-action="Index">Back to List</a>
+        </button>
 </div>
