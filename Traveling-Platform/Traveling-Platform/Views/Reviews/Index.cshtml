@@ -5,10 +5,11 @@
 }
 
 <h1>@ViewBag.nume - Reviews</h1>
-
+<br/>
 <p>
-    <a asp-action="Create">Create New</a>
+    <button id="tari"><a asp-action="Create">Create New</a></button>
 </p>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -43,10 +44,12 @@
                 <p>@item.HotelName</p>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                <button id="edit">
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    </button>
+                <button id="delete">  <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </button>
+                </td>
         </tr>
 }
     </tbody>

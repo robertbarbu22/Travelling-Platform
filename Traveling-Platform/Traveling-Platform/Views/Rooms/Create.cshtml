@@ -4,9 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Room</h4>
+<h1>Create Room</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,22 +14,22 @@
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
-                <label asp-for="DoubleBedsNumber" class="control-label"></label>
+                <label asp-for="DoubleBedsNumber" class="control-label">Double Beds Number</label>
                 <input asp-for="DoubleBedsNumber" class="form-control" />
                 <span asp-validation-for="DoubleBedsNumber" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
-                <label asp-for="SingleBedsNumber" class="control-label"></label>
+                <label asp-for="SingleBedsNumber" class="control-label">Single Beds Number</label>
                 <input asp-for="SingleBedsNumber" class="form-control" />
                 <span asp-validation-for="SingleBedsNumber" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
-                <label asp-for="BunkBedsNumber" class="control-label"></label>
+                <label asp-for="BunkBedsNumber" class="control-label">Bunk Beds Number</label>
                 <input asp-for="BunkBedsNumber" class="form-control" />
                 <span asp-validation-for="BunkBedsNumber" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="HasBalcony" /> @Html.DisplayNameFor(model => model.HasBalcony)
@@ -46,19 +44,19 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="HasCookingEquipment" /> @Html.DisplayNameFor(model => model.HasCookingEquipment)
                 </label>
-            </div>
+            </div><br/>
             <div class="form-group">
-                <label asp-for="PricePerNight" class="control-label"></label>
+                <label asp-for="PricePerNight" class="control-label">Price Per Night</label>
                 <input asp-for="PricePerNight" class="form-control" />
                 <span asp-validation-for="PricePerNight" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
                 <label asp-for="Hotel" class="control-label"></label>
                 <br />
                 <select asp-for="IdHotel" asp-items="@Model.Hotels">
                     <option>Please select one</option>
                 </select>
-            </div>
+            </div><br/>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -66,9 +64,9 @@
     </div>
 </div>
 
-<div>
+<button class="btn btn-primary">
     <a asp-action="Index">Back to List</a>
-</div>
+</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

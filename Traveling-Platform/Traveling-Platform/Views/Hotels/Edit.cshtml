@@ -4,38 +4,36 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edit Hotel</h1>
 
-<h4>Hotel</h4>
-<hr />
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id_hotel" />
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
+                <label asp-for="name" class="control-label">New Name</label>
                 <input asp-for="name" class="form-control" />
                 <span asp-validation-for="name" class="text-danger"></span>
-            </div>
+            </div> <br/>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
+                <label asp-for="description" class="control-label">New Description</label>
                 <input asp-for="description" class="form-control" />
                 <span asp-validation-for="description" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label asp-for="PhoneNumber" class="control-label">New Phone Number</label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
-                <label asp-for="id_city" class="control-label"></label>
-                <input asp-for="id_city" class="form-control" />
+                <input asp-for="id_city" class="form-control" type="hidden" />
                 <span asp-validation-for="id_city" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="id_manager" class="control-label"></label>
-                <input asp-for="id_manager" class="form-control" />
+                <input asp-for="id_manager" class="form-control" type="hidden"/>
                 <span asp-validation-for="id_manager" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,10 +43,9 @@
     </div>
 </div>
 
-<div>
+<button class="btn btn-primary">
     <a asp-action="Index">Back to List</a>
-</div>
-
+    </button>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create a hotel</h1>
+<h1>Create hotel</h1>
 
 <hr />
 <div class="row">
@@ -22,34 +22,34 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div><br />
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div><br />
             <div class="form-group">
-                <label asp-for="CityId" class="control-label"></label>
+                <label asp-for="CityId" class="control-label">City</label>
                 <br />
                 <select asp-for="CityId" asp-items="@Model.Cit">
                     <option>Please select one</option>
                 </select>
             </div><br />
             <div class="form-group">
-                <label asp-for="ManagerId" class="control-label"></label>
+                <label asp-for="ManagerId" class="control-label">Manager</label>
                 <br />
                 <select asp-for="ManagerId" asp-items="@Model.Man">
                     <option>Please select one</option>
                 </select>
             </div><br />
             <div class="form-group">
-                <label asp-for="PictureFile" class="control-label"></label>
+                <label asp-for="PictureFile" class="control-label">Picture</label>
                 <input asp-for="PictureFile" type="file" class="form-control" />
             </div><br />
             <button type="submit" class="btn btn-primary">Create</button>
-        </form><br />
+        </form>
     </div>
 </div>
 
-<button id="orasNou">
+<button class="btn btn-primary">
     <a asp-action="Index">Back to List</a>
 </button>
 

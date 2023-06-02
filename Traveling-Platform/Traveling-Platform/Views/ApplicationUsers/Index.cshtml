@@ -5,7 +5,7 @@
 {
     <h4>@appuser.UserName</h4>
         <button id="details">
-                    <a asp-action="Details" asp-route-id="@appuser.Id">Details</a> 
+                    <a asp-action="Show" asp-route-id="@appuser.Id">Details</a> 
                 </button>
                 @if (User.IsInRole("Admin")){
                    <button id="edit">

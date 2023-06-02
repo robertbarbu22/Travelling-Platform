@@ -25,6 +25,7 @@ else
         <a href="/ApplicationUsers/Delete/@Model.Id">Delete user</a>
     </button>
     <br />
+    <br/>
 
     @if (ViewBag.Role == "User")
     {
@@ -47,7 +48,7 @@ else
     else if (ViewBag.Role == "HotelManager")
     {
         <button id="edit">
-            <a href="/ApplicationUsers/MakeReceptionist/@Model.Id">Make Receptionistr</a>
+            <a href="/ApplicationUsers/MakeReceptionist/@Model.Id">Make Receptionist</a>
         </button>
         <button id="edit">
             <a href="/ApplicationUsers/MakeUser/@Model.Id">Make User</a>
