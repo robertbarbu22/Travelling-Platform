@@ -157,6 +157,16 @@ td{
     border-radius: 2px;
 }
 
+#forgot-password, #resend-confirmation{
+    color:black;
+    text-decoration: underline;
+}
+
+p a[href] {
+    color: black;
+    text-decoration: underline;
+}
+
 
 
 

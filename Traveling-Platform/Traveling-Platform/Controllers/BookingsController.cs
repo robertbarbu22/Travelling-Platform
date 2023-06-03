@@ -88,31 +88,37 @@ namespace Traveling_Platform.Controllers
         public IActionResult Create(int id)
         {
             Booking book = new Booking();
-
-            book.IdHotel = id;
-            book.IdUser = _userManager.GetUserId(User);
-            book.BookingDate=DateTime.Now;
-            book.Rooms = GetAllRooms(id);
-
-            return View(book);
+            int hotid = id;
+            ViewBag.hotid = hotid;
+            return RedirectToAction("Done");
+            book.Rooms = GetAllRooms(hotid);
+            TempData["hotid"] = hotid;
+            return View();
         }
+
+        public IActionResult Done()
+        {
+            return View();
+        }
+
 
         // POST: Bookings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Booking booking)
+        public async Task<IActionResult> Create(Booking book)
         {
-            if (ModelState.IsValid)
-            {
-                db.Add(booking);
-                await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
             
-            return View(booking);
+            book.IdHotel = (int)TempData["hotid"];
+            book.IdUser = _userManager.GetUserId(User);
+            book.BookingDate = DateTime.Now;
+            
+            db.Add(book);
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
+
 
         // GET: Bookings/Edit/5
         public async Task<IActionResult> Edit(int? id)
