@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Traveling_Platform.Models
@@ -28,6 +29,9 @@ namespace Traveling_Platform.Models
 
         [NotMapped]
         public Room? Room { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem>? Rooms { get; set; }
 
     }
 }
