@@ -60,15 +60,10 @@ namespace Traveling_Platform.Controllers
                 return View();
             }
 
-            //ViewBag.Utilizator = db.Users.Find()
-            var bookings = db.Bookings.ToList();
-            //ViewBag.bookings = bookings;
-            foreach(var book in bookings)
-            {
-                //ViewData[(string)book.Id]= db.Users.Find(book.IdUser);
-            }
-
-            return View(bookings);
+            
+            var bookings = db.Bookings.Where(b => b.IdUser == _userManager.GetUserId(User));
+            ViewBag.Lista = bookings;
+            return View();
         }
 
         // GET: Bookings/Details/5
@@ -93,8 +88,12 @@ namespace Traveling_Platform.Controllers
         public IActionResult Create(int id)
         {
             Booking book = new Booking();
+
             book.IdHotel = id;
             book.IdUser = _userManager.GetUserId(User);
+            book.BookingDate=DateTime.Now;
+            book.Rooms = GetAllRooms(id);
+
             return View(book);
         }
 
@@ -107,11 +106,11 @@ namespace Traveling_Platform.Controllers
         {
             if (ModelState.IsValid)
             {
-                booking.Client = db.Users.Find(booking.IdUser); 
                 db.Add(booking);
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(booking);
         }
 
@@ -206,6 +205,23 @@ namespace Traveling_Platform.Controllers
         private bool BookingExists(int id)
         {
           return (db.Bookings?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public IEnumerable<SelectListItem> GetAllRooms(int id)
+        {
+            var selectList = new List<SelectListItem>();
+            var rooms = from cat in db.Rooms.Where(r => r.IdHotel == id)
+                         select cat;
+            foreach (var room in rooms)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = room.Id.ToString(),
+                    Text = room.Name.ToString()
+                });
+            }
+
+            return selectList;
         }
     }
 }
