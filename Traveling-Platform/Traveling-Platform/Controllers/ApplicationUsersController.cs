@@ -55,6 +55,7 @@ namespace Traveling_Platform.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> MakeManager(string id)
         {
             ApplicationUser user = db.Users.Find(id);
@@ -74,6 +75,7 @@ namespace Traveling_Platform.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> MakeReceptionist(string id)
         {
             ApplicationUser user = db.Users.Find(id);
@@ -93,6 +95,8 @@ namespace Traveling_Platform.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> MakeUser(string id)
         {
             ApplicationUser user = db.Users.Find(id);
@@ -131,6 +135,7 @@ namespace Traveling_Platform.Controllers
             return selectList;
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(string id)
         {
             var user = db.Users.Find(id);
@@ -177,6 +182,8 @@ namespace Traveling_Platform.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(string id)
         {
             ApplicationUser user = db.Users.Find(id);
@@ -196,6 +203,7 @@ namespace Traveling_Platform.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(string id, ApplicationUser newData, [FromForm] string newRole)
         {
             ApplicationUser user = db.Users.Find(id);

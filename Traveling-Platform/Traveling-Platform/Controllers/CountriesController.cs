@@ -11,6 +11,7 @@ using Traveling_Platform.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Traveling_Platform.Controllers
 {
@@ -172,6 +173,8 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Countries/Create
+
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
@@ -182,6 +185,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(CountryViewModel model)
         {
             if (ModelState.IsValid)
@@ -219,6 +223,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Countries/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || db.Countries == null)
@@ -239,6 +244,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id, [Bind("tag,commonName,officialName")] Country country)
         {
             if (id != country.tag)
@@ -270,6 +276,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Countries/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || db.Countries == null)
@@ -290,6 +297,7 @@ namespace Traveling_Platform.Controllers
         // POST: Countries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             if (db.Countries == null)
