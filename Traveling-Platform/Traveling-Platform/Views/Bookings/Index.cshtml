@@ -1,4 +1,5 @@
-﻿<h1>All Bookings</h1>
+﻿
+<h1>All Bookings</h1>
 <br/>
 <button id="orasNou">
     <a asp-action="Create">New Booking</a>
@@ -36,7 +37,7 @@
             {
                 <tr>
                     <td>
-                        @item.bookdate
+                    @item.bookdate
                     </td>
                     <td>
                         @item.checkin
@@ -57,6 +58,8 @@
                         @item.room
                     </td>
                     <td>
+
+
                     <button id="details">
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     </button>

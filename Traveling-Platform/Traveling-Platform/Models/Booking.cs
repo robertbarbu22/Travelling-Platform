@@ -9,7 +9,6 @@ namespace Traveling_Platform.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public DateTime BookingDate { get; set; }
 
         public DateTime Checkin { get; set; }
@@ -23,7 +22,7 @@ namespace Traveling_Platform.Models
 
         public int IdHotel { get; set; }
         [NotMapped]
-        public Hotel? Hotel { get; set;}
+        public Hotel? Hotel { get; set; }
 
         public int IdRoom { get; set; }
 

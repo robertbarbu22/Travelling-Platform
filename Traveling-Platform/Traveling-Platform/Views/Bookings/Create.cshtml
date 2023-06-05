@@ -1,45 +1,52 @@
 ﻿@model Traveling_Platform.Models.Booking
 
-@{
-    ViewData["Title"] = "Create";
-}
+<center>
+    <h1>Please enter your booking details</h1><center />
+    <br />
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6 offset-3">
+                @using (Html.BeginForm(actionName: "Create", controllerName: "Bookings", method: FormMethod.Post))
+                {
+                    <input type="hidden" name="BookingDate" value="@DateTime.Now" />
 
-<h1>Book</h1>
+                    @Html.Label("Checkin", "Checkin date")
+                    <br />
+                    @Html.TextBoxFor(m => m.Checkin, "{0:yyyy-MM-ddTHH:mm}", new { @type = "datetime-local", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Checkin, "", new { @class = "text-danger" })
+                    <br />
 
-<h4></h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-controller="Bookings" asp-action="Create" method="post" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Checkin" class="control-label"></label>
-                <input asp-for="Checkin" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                <span asp-validation-for="Checkin" class="text-danger"></span>
+                    @Html.Label("Checkout", "Checkout date")
+                    <br />
+                    @Html.TextBoxFor(m => m.Checkout, "{0:yyyy-MM-ddTHH:mm}", new { @type = "datetime-local", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Checkout, "", new { @class = "text-danger" })
+                    <br />
+
+
+                    <br />
+
+                    <input type="hidden" name="IdUser" value="@ViewBag.UserId" />
+
+                    <input type="hidden" name="IdHotel" value="@ViewBag.HotelId" />
+
+
+                    <label>Select Room</label>
+                    @Html.DropDownListFor(m => m.IdRoom, new SelectList(Model.Rooms, "Value", "Text"),
+                "Select Room", new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.IdRoom, null, new {@class = "text-danger"})
+                    <br />
+
+                    <br />
+
+                    @*@if (User.IsInRole("Admin"))
+                    {
+                        <button id="edit" class="btn btn-success" type="submit">Add City</button>
+                    }*@
+
+                    <button class="btn btn-success" type="submit">Finalise your Booking</button>
+                }
             </div>
-            <div class="form-group">
-                <label asp-for="Checkout" class="control-label"></label>
-                <input asp-for="Checkout" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                <span asp-validation-for="Checkout" class="text-danger"></span>
-            </div>
-             <div class="form-group">
-                <label asp-for="IdRoom" class="control-label"></label>
-                <br />
-                <select asp-for="IdRoom" asp-items="@Model.Rooms">
-                    <option>Please select one</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
