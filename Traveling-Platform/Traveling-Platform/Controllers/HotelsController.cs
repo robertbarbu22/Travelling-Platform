@@ -199,7 +199,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Manager")]
+        [Authorize(Roles = "Admin,HotelManager")]
         public async Task<IActionResult> Edit(int id, [Bind("id_hotel,name,description,PhoneNumber,id_city,id_manager")] Hotel hotel)
         {
             if (id != hotel.id_hotel)
@@ -231,7 +231,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Hotels/Delete/5
-        [Authorize(Roles = "Admin,Manager")]
+        [Authorize(Roles = "Admin,HotelManager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || db.Hotels == null)
@@ -252,7 +252,7 @@ namespace Traveling_Platform.Controllers
         // POST: Hotels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Manager")]
+        [Authorize(Roles = "Admin,HotelManager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (db.Hotels == null)

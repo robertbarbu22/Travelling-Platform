@@ -44,10 +44,13 @@
                 <p>@item.HotelName</p>
             </td>
             <td>
-                <button id="edit">
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                    </button>
-                <button id="delete">  <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @if (User.IsInRole("Admin, HotelManager"))
+                    {
+                        <button id="edit">
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                        </button>
+                    }
+                    <button id="delete">  <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     </button>
                 </td>
         </tr>

@@ -87,7 +87,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Rooms/Create
-        [Authorize(Roles = "Manager, Admin")]
+        [Authorize(Roles = "HotelManager, Admin")]
         public IActionResult Create()
         {
             Room room = new Room();
@@ -100,7 +100,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Manager, Admin")]
+        [Authorize(Roles = "HotelManager, Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name,DoubleBedsNumber,SingleBedsNumber,BunkBedsNumber,HasBalcony,HasBathroom,HasCookingEquipment,PricePerNight,IdHotel")] Room room)
         {
             if (ModelState.IsValid)
@@ -113,7 +113,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Rooms/Edit/5
-        [Authorize(Roles = "Manager, Admin")]
+        [Authorize(Roles = "HotelManager, Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || db.Rooms == null)
@@ -134,7 +134,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Manager, Admin")]
+        [Authorize(Roles = "HotelManager, Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DoubleBedsNumber,SingleBedsNumber,BunkBedsNumber,HasBalcony,HasBathroom,HasCookingEquipment,PricePerNight,IdHotel")] Room room)
         {
             if (id != room.Id)
@@ -166,7 +166,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Rooms/Delete/5
-        [Authorize(Roles = "Manager, Admin")]
+        [Authorize(Roles = "HotelManager, Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || db.Rooms == null)
@@ -187,7 +187,7 @@ namespace Traveling_Platform.Controllers
         // POST: Rooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Manager, Admin")]
+        [Authorize(Roles = "HotelManager, Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (db.Rooms == null)

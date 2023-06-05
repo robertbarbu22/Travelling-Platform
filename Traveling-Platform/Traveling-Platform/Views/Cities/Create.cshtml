@@ -20,13 +20,15 @@
                 @Html.DropDownListFor(m => m.stateTag, new SelectList(Model.State, "Value", "Text"),
             "Select Country", new {@class = "form-control"})
                 @Html.ValidationMessageFor(m => m.stateTag, null, new {@class = "text-danger"})
-                <br />
+                    <br />
 
-                <br />
+                    <br />
 
-
-                <button id="edit" class="btn btn-success" type="submit">Add City</button>
-            }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <button id="edit" class="btn btn-success" type="submit">Add City</button>
+                    }
+                }
         </div>
     </div>
 </div>

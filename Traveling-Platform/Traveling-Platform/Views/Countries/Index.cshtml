@@ -6,9 +6,11 @@
     <h2 class="alert-success p-3 rounded-3 text-center mb-5">@ViewBag.Message</h2>
 }
 <br />
-
-<button id="tari"><a asp-action="Create">Create New</a></button>
- <br/><br/>
+@if (User.IsInRole("Admin"))
+{
+    <button id="tari"><a asp-action="Create">Create New</a></button>
+    <br/><br/>
+}
 
 @* Motorul de cautare *@
 <form method="GET">

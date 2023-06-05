@@ -6,9 +6,11 @@
 
 <h1>All Rooms</h1>
 <br />
-<button id="orasNou">
+@if (User.IsInRole("Admin, HotelManager"))
+{
+    <button id="orasNou">
     <a asp-action="Create">New Room</a>
-</button>
+</button>}
 <br />
 <br />
 <table class="table">

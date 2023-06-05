@@ -41,10 +41,12 @@
         </tr>
 }
     </tbody>
-
-    <button id="orasNou">
-        <a asp-action="Create">New City</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <button id="orasNou">
+            <a asp-action="Create">New City</a>
     </button>
+    }
     <br/><br/>
 </table>
 

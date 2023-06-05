@@ -174,7 +174,7 @@ namespace Traveling_Platform.Controllers
 
         // GET: Countries/Create
 
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();

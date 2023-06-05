@@ -7,9 +7,10 @@
 <center><h1>All Hotels</h1><center/>
 <br/>
 
-
-<button id="tari"><a asp-action="Create">Create New</a></button>
-<br/><br/>
+    @if (User.IsInRole("Admin, HotelManager"))
+    {
+        <button id="tari"><a asp-action="Create">Create New</a></button>
+<br/><br/>}
    
 <table class="table">
     <thead>

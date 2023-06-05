@@ -26,8 +26,10 @@
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> 
        <br/><br/>
-        <button id="edit">
-        <a asp-action="Index">Back to List</a>
-        </button>
+        @if (User.IsInRole("Admin"))
+        {
+            <button id="edit">
+                <a asp-action="Index">Back to List</a>
+        </button>}
     </form>
 </div>

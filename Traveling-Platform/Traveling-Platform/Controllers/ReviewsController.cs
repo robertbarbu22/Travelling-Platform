@@ -54,7 +54,7 @@ namespace Traveling_Platform.Controllers
         } */
 
         // GET: Reviews
-        [Authorize (Roles = "Admin, Manager, User, Receptionist")]
+        [Authorize (Roles = "Admin, HotelManager, User, HotelReceptionist")]
         public IActionResult Index(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace Traveling_Platform.Controllers
 
 
         // GET: Reviews/Details/5
-        [Authorize(Roles = "Admin, Manager, User, Receptionist")]
+        [Authorize(Roles = "Admin, HotelManager, User, HotelReceptionist")]
         public IActionResult Details(int? id)
         {
             if (id == null || db.Reviews == null)
@@ -107,7 +107,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews/Create
-        [Authorize(Roles = "Admin, Manager, User, Receptionist")]
+        [Authorize(Roles = "Admin, HotelManager, User, HotelReceptionist")]
         public IActionResult Create()
         {
             return RedirectToAction("Index");
@@ -132,7 +132,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews/Edit/5
-        
+        [Authorize(Roles = "Admin, HotelManager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || db.Reviews == null)
@@ -153,7 +153,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        [Authorize(Roles = "Admin, HotelManager")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Text,Time,IdClient,IdHotel")] Review review)
         {
             if (id != review.Id)
@@ -185,7 +185,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews/Delete/5
-        [Authorize(Roles = "Admin, Manager, User, Receptionist")]
+        [Authorize(Roles = "Admin, HotelManager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || db.Reviews == null)
@@ -206,7 +206,7 @@ namespace Traveling_Platform.Controllers
         // POST: Reviews/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin, Manager, User, Receptionist")]
+        [Authorize(Roles = "Admin, HotelManager, User, HotelReceptionist")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (db.Reviews == null)
