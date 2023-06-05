@@ -42,11 +42,12 @@
             @Html.DisplayFor(model => model.id_manager)
         </dd>
     </dl>
-    @if (User.IsInRole("Admin, HotelManager"))
+    @if (User.IsInRole("Admin") || User.IsInRole("HotelManager"))
     {
         <form asp-action="Delete">
             <input type="hidden" asp-for="id_hotel" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>}
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    }
 </div>

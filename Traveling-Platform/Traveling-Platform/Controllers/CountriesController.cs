@@ -307,9 +307,13 @@ namespace Traveling_Platform.Controllers
             var country = await db.Countries.FindAsync(id);
             if (country != null)
             {
+                var cities = db.Cities.Where(c => c.stateTag==country.tag).ToList();
+                foreach (var city in cities)
+                    db.Cities.Remove(city);
+
                 db.Countries.Remove(country);
             }
-            
+
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

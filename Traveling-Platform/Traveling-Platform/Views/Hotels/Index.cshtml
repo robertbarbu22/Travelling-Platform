@@ -4,65 +4,66 @@
     ViewData["Title"] = "Index";
 }
 
-<center><h1>All Hotels</h1><center/>
-<br/>
+<center>
+    <h1>All Hotels</h1><center />
+    <br />
 
-    @if (User.IsInRole("Admin, HotelManager"))
-    {
-        <button id="tari"><a asp-action="Create">Create New</a></button>
-<br/><br/>}
-   
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_city)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_manager)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_city)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_manager)
-            </td>
-            <td>
-                <button id="edit">
-                 <a asp-action="Edit" asp-route-id="@item.id_hotel">Edit</a> 
-                </button>
+
+    <button id="tari"><a asp-action="Create">Create New</a></button>
+    <br /><br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Manager.LastName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Manager.LastName)
+                    </td>
+                    <td>
+                        <button id="edit">
+                            <a asp-action="Edit" asp-route-id="@item.id_hotel">Edit</a>
+                        </button>
                         <button id="details">
-                <a asp-action="Details" asp-route-id="@item.id_hotel">Details</a> 
-                </button>
+                            <a asp-action="Details" asp-route-id="@item.id_hotel">Details</a>
+                        </button>
                         <button id="delete">
-                <a asp-action="Delete" asp-route-id="@item.id_hotel">Delete</a>
-            </button>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                            <a asp-action="Delete" asp-route-id="@item.id_hotel">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

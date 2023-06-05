@@ -44,7 +44,7 @@
                 <p>@item.HotelName</p>
             </td>
             <td>
-                    @if (User.IsInRole("Admin, HotelManager"))
+                    @if (User.IsInRole("Admin") || User.IsInRole("HotelManager"))
                     {
                         <button id="edit">
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 

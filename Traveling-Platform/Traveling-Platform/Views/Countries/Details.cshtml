@@ -5,26 +5,25 @@
 }
 
 <h1>@Model.commonName</h1>
-<br/>
+<br />
 
 <div>
-    @foreach(var city in ViewBag.City)
+    @foreach (var city in ViewBag.City)
     {
         <div>
-            <h3>@city.Name
-                <a class="btn btn-success" href="/Cities/Details/@city.Id">View City</a></h3>
+            <h3>
+                @city.Name
+                <a class="btn btn-success" href="/Cities/Details/@city.Id">View City</a>
+            </h3>
         </div>
-        <br/>
+        <br />
     }
 </div>
 
 <div>
     <img src="@("data:image/png;base64," + ViewBag.PictureBase64)" alt="Hotel Picture" />
-    <br/><br/>
-    <button id="edit">
-        <a asp-action="Edit" asp-route-id="@Model?.tag">Edit Country</a>
-    </button>
+    <br /><br />
     <button id="edit">
         <a asp-action="Index">Back to List</a>
-        </button>
+    </button>
 </div>
