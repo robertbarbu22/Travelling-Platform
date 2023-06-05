@@ -41,19 +41,20 @@ namespace Traveling_Platform.Controllers
             if (User.IsInRole("Admin"))
             {
                 var adminbookings = from book in db.Bookings
-                               select new
-                               {
-                                   Id = book.Id,
-                                   bookdate = book.BookingDate,
-                                   checkin = book.Checkin,
-                                   checkout = book.Checkout,
-                                   email = (from usr in db.Users where usr.Id == book.IdUser select usr.Email).First(),
-                                   hotel = (from hot in db.Hotels where hot.id_hotel == book.IdHotel select hot.name).First(),
-                                   city = (from cit in db.Cities where (cit.Id == 
-                                           (from hot in db.Hotels where hot.id_hotel == book.IdHotel select hot.id_city).First())
-                                           select cit.Name).First(),
-                                   room = (from rom in db.Rooms where rom.Id == book.IdRoom select rom.Name).First()
-                               };
+                                    select new
+                                    {
+                                        Id = book.Id,
+                                        bookdate = book.BookingDate,
+                                        checkin = book.Checkin,
+                                        checkout = book.Checkout,
+                                        email = (from usr in db.Users where usr.Id == book.IdUser select usr.Email).First(),
+                                        hotel = (from hot in db.Hotels where hot.id_hotel == book.IdHotel select hot.name).First(),
+                                        city = (from cit in db.Cities
+                                                where (cit.Id ==
+                                                (from hot in db.Hotels where hot.id_hotel == book.IdHotel select hot.id_city).First())
+                                                select cit.Name).First(),
+                                        room = (from rom in db.Rooms where rom.Id == book.IdRoom select rom.Name).First()
+                                    };
 
                 var lista = adminbookings.ToList();
 
@@ -147,20 +148,33 @@ namespace Traveling_Platform.Controllers
         // GET: Bookings/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || db.Bookings == null)
-            {
-                return NotFound();
-            }
+            Booking book = db.Bookings.Find(id);
+            Booking b = new Booking();
+            b.Id = book.Id;
+            b.BookingDate = book.BookingDate;
+            b.Checkin = book.Checkin;
+            b.Checkout = book.Checkout;
+            b.IdUser = book.IdUser;
+            b.Hotel = db.Hotels.Find(book.IdHotel);
+            b.Room = db.Rooms.Find(book.IdRoom);
 
-            var booking = await db.Bookings
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (booking == null)
-            {
-                return NotFound();
-            }
-
-            return View(booking);
+            return View(b);
         }
+
+        /* if (id == null || db.Bookings == null)
+         {
+             return NotFound();
+         }
+
+         var booking = await db.Bookings
+             .FirstOrDefaultAsync(m => m.Id == id);
+         if (booking == null)
+         {
+             return NotFound();
+         }
+
+         return View(booking);
+     */
 
         // GET: Bookings/Create
         public IActionResult Create()
@@ -273,21 +287,21 @@ namespace Traveling_Platform.Controllers
             {
                 db.Bookings.Remove(booking);
             }
-            
+
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BookingExists(int id)
         {
-          return (db.Bookings?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (db.Bookings?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         public IEnumerable<SelectListItem> GetAllRooms(int id)
         {
             var selectList = new List<SelectListItem>();
             var rooms = from cat in db.Rooms.Where(r => r.IdHotel == id)
-                         select cat;
+                        select cat;
             foreach (var room in rooms)
             {
                 selectList.Add(new SelectListItem

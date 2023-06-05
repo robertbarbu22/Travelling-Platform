@@ -51,14 +51,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Index">Bookings</a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Messages" asp-action="Index">Messages</a>
-                        </li>
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rooms" asp-action="Index">Rooms</a>
-                        </li>
+                   
+                        @if (User.IsInRole("Admin") || User.IsInRole("HotelManager") || User.IsInRole("HotelReceptionist")){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Rooms" asp-action="Index">Rooms</a>
+                            </li>
+                        }
                         @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HotelManager") || User.IsInRole("HotelReceptionist"))
                         {
                             <li class="nav-item">

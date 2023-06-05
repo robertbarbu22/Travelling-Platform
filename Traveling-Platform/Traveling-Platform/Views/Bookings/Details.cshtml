@@ -4,10 +4,15 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<h1>Booking Details</h1>
 
 <div>
-    <h4>Booking</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -15,40 +20,44 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.BookingDate)
-        </dd>
+        </dd><br/>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Checkin)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Checkin)
         </dd>
+        <br />
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Checkout)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Checkout)
         </dd>
-        <dt class = "col-sm-2">
+        <br />
+        <dt class="col-sm-2 hidden">
             @Html.DisplayNameFor(model => model.IdUser)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10 hidden">
             @Html.DisplayFor(model => model.IdUser)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdHotel)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdHotel)
+            @Html.DisplayFor(model => model.Hotel.name)
         </dd>
+        <br />
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdRoom)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdRoom)
+            @Html.DisplayFor(model => model.Room.Name)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <button id="edit" >
+        <a asp-action="Index">Back to List</a>
+    </button>
 </div>
