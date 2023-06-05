@@ -117,6 +117,146 @@ public static class SeedData
                   }
               );
             }
+            if (!context.Cities.Any())
+            {
+                context.Cities.AddRange(
+                   new City
+                    {
+                        //Id = 1,
+                        Name = "Valcea",
+                        stateTag = "RO"
+
+                    },
+                    new City
+                    {
+                        //Id = 2,
+                        Name = "Sofia",
+                        stateTag = "BG"
+                    }
+                    );
+            }
+            if(!context.Hotels.Any())
+            {
+                context.Hotels.AddRange(
+                    new Hotel
+                    {
+                        //id_hotel = 1,
+                        name = "Ramada",
+                        description = "Preturi accesibile 2023",
+                        PhoneNumber = "0748277393",
+                        id_city = 1,
+                        ImagePath = null,
+                        id_manager = "8e445865-a24d-4543-a6c6-9443d048cdb1"
+
+                    },
+                    new Hotel
+                    {
+                        //id_hotel = 2,
+                        name = "New Horrizons",
+                        description = "city center",
+                        PhoneNumber = "023485732",
+                        id_city = 2,
+                        ImagePath = null,
+                        id_manager = "8e445865-a24d-4543-a6c6-9443d048cdb1"
+                    }
+                    );
+            }
+            if (context.Rooms.Any())
+            {
+                context.Rooms.AddRange(
+                    new Room
+                    {
+                       // Id = 1,
+                        Name = "double",
+                        DoubleBedsNumber = 1,
+                        SingleBedsNumber = 0,
+                        BunkBedsNumber = 0,
+                        HasBalcony = true,
+                        HasBathroom = true,
+                        HasCookingEquipment = true,
+                        PricePerNight = 100,
+                        IsBooked = false,
+                        IdHotel = 1
+                    },
+                    new Room
+                    {
+                        //Id = 2,
+                        Name = "double",
+                        DoubleBedsNumber = 1,
+                        SingleBedsNumber = 0,
+                        BunkBedsNumber = 0,
+                        HasBalcony = true,
+                        HasBathroom = true,
+                        HasCookingEquipment = true,
+                        PricePerNight = 100,
+                        IsBooked = false,
+                        IdHotel = 2
+                    },
+                     new Room
+                     {
+                         //Id = 3,
+                         Name = "family",
+                         DoubleBedsNumber = 1,
+                         SingleBedsNumber = 0,
+                         BunkBedsNumber = 1,
+                         HasBalcony = true,
+                         HasBathroom = true,
+                         HasCookingEquipment = true,
+                         PricePerNight = 200,
+                         IsBooked = false,
+                         IdHotel = 1
+                     }
+                );
+            }
+            if (!context.Reviews.Any())
+            {
+                context.AddRange(
+                    new Review
+                    {
+                        //Id = 1,
+                        Text = "frumos",
+                        Time = DateTime.Now,
+                        IdClient = "8e445865-a24d-4543-a6c6-9443d048cdb3",
+                        IdHotel = 1
+
+                    },
+                    new Review
+                    {
+                        //Id = 2,
+                        Text = "frumos",
+                        Time = DateTime.Now,
+                        IdClient = "8e445865-a24d-4543-a6c6-9443d048cdb3",
+                        IdHotel = 2
+
+                    });
+            }
+            if (!context.Bookings.Any())
+            {
+                context.AddRange(
+                    new Booking
+                    {
+                        //Id = 1,
+                        BookingDate = DateTime.Now,
+                        Checkin = DateTime.Now,
+                        Checkout = DateTime.Now,
+                        IdUser = "8e445865-a24d-4543-a6c6-9443d048cdb3",
+                        IdHotel = 1,
+                        IdRoom = 1
+
+                    },
+                    new Booking
+                    {
+                        //Id = 2,
+                        BookingDate = DateTime.Now,
+                        Checkin = DateTime.Now,
+                        Checkout = DateTime.Now,
+                        IdUser = "8e445865-a24d-4543-a6c6-9443d048cdb3",
+                        IdHotel = 2,
+                        IdRoom = 2
+
+                    });
+            }
+            
             context.SaveChanges();
         }
     }
