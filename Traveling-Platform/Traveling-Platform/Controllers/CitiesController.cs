@@ -186,7 +186,28 @@ namespace Traveling_Platform.Controllers
             var city = await db.Cities.FindAsync(id);
             if (city != null)
             {
-                db.Cities.Remove(city);
+                var hotels = db.Hotels.Where(h => h.id_city == city.Id).ToList();
+                foreach (var hotel in hotels)
+                {
+                    if (hotel != null)
+                    {
+                        var pictures = db.Pictures.Where(p => p.HotelId == hotel.id_hotel).ToList();
+                        var rooms = db.Rooms.Where(r => r.IdHotel == hotel.id_hotel).ToList();
+                        foreach (var room in rooms)
+                        {
+                            db.Remove(room);
+                        }
+
+                        foreach (var picture in pictures)
+                        {
+                            db.Remove(picture);
+                        }
+
+                        db.Hotels.Remove(hotel);
+                    }
+                }
+                    db.Cities.Remove(city);
+                
             }
             
             await db.SaveChangesAsync();

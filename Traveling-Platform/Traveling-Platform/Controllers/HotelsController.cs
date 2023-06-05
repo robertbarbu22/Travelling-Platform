@@ -279,6 +279,18 @@ namespace Traveling_Platform.Controllers
             var hotel = await db.Hotels.FindAsync(id);
             if (hotel != null)
             {
+                var pictures = db.Pictures.Where(p=> p.HotelId == id).ToList();
+                var rooms = db.Rooms.Where(r => r.IdHotel == id).ToList();
+                foreach (var room in rooms)
+                {
+                    db.Remove(room);
+                }
+
+                foreach(var picture in pictures)
+                {
+                    db.Remove(picture);
+                }
+
                 db.Hotels.Remove(hotel);
             }
 

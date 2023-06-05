@@ -306,10 +306,37 @@ namespace Traveling_Platform.Controllers
             }
             var country = await db.Countries.FindAsync(id);
             if (country != null)
-            {
+            {   var picure_country=db.Pictures.Where(p => p.Tag == country.tag).ToList();
+                foreach(var picture in picure_country)
+                {
+                    db.Pictures.Remove(picture);
+                }
                 var cities = db.Cities.Where(c => c.stateTag==country.tag).ToList();
                 foreach (var city in cities)
+                {
+                    var hotels = db.Hotels.Where(h => h.id_city == city.Id).ToList();
+                    foreach (var hotel in hotels)
+                    {
+                        if (hotel != null)
+                        {
+                            var pictures = db.Pictures.Where(p => p.HotelId == hotel.id_hotel).ToList();
+                            var rooms = db.Rooms.Where(r => r.IdHotel == hotel.id_hotel).ToList();
+                            foreach (var room in rooms)
+                            {
+                                db.Remove(room);
+                            }
+
+                            foreach (var picture in pictures)
+                            {
+                                db.Remove(picture);
+                            }
+
+                            db.Hotels.Remove(hotel);
+                        }
+                    }
                     db.Cities.Remove(city);
+                }
+                    
 
                 db.Countries.Remove(country);
             }
