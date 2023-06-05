@@ -46,4 +46,4 @@ We used Trello for keeping track of the tasks https://trello.com/b/Y9VQDw32/trav
 ## AI usage
 
 We used both chatGPT and GitHub Copilot for helping us with errors that we didn't resolve of for snippets of code for a quicker solution.
-We attached some screen shots of how we used AI in wiki https://github.com/robertbarbu22/Travelling-Platform.wiki.git.
+We attached some screen shots of how we used AI in wiki https://github.com/robertbarbu22/Travelling-Platform.wiki.git .
