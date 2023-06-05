@@ -12,7 +12,6 @@ public static class SeedData
         serviceProvider.GetRequiredService
         <DbContextOptions<ApplicationDbContext>>()))
         {
-
             if (!context.Roles.Any())
             {
                 // baza de date contine deja roluri
