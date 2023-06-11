@@ -10,16 +10,16 @@ Join us and let your once in a lifetime adventure start NOW!
 
 ## Software Development Process
 
-user stories - described bellow 
-backlog creation - described bellow 
-diagrams - described bellow
-source control cu git (branch creation, merge/rebase, pull requests, minim 10 commits) - visible on this project's github
-teste automate - using the SeedData class from the Model to populate some database tables with values, thus automatically generating Countries and Cities
-raportare bug si rezolvare cu pull request - visible on this github
-refactoring, code standards - properly named variables, optimized code, line-length limit, usage of try - catch statements and more
-comentarii cod - the code includes comments
-design patterns - as an ASP.NET Core MVC App, there are being used the Model-View-Controller and Dependency Injection design patterns
-folosirea unui tool de AI care ajuta in timpul dezvoltarii software (d. ex. GitHub Copilot, chatGPT) - described bellow
+- user stories - described bellow 
+- backlog creation - described bellow 
+- diagrams - described bellow
+- source control cu git (branch creation, merge/rebase, pull requests, minim 10 commits) - visible on this project's github
+- teste automate - using the SeedData class from the Model to populate some database tables with values, thus automatically generating Countries and Cities
+- raportare bug si rezolvare cu pull request - visible on this github
+- refactoring, code standards - properly named variables, optimized code, line-length limit, usage of try - catch statements and more
+- comentarii cod - the code includes comments
+- design patterns - as an ASP.NET Core MVC App, there are being used the Model-View-Controller and Dependency Injection design patterns
+- folosirea unui tool de AI care ajuta in timpul dezvoltarii software (d. ex. GitHub Copilot, chatGPT) - described bellow
 
 ## Features list:
 
